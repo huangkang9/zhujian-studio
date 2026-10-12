@@ -12,7 +12,7 @@ git add .
 git commit -m "Initial open-source release"
 ```
 
-上述步骤用于创建独立的新仓库。维护当前仓库时，请先克隆 https://github.com/huangkang9/zhujian-studio ，再提交与推送后续修改。源码公开不改变原托管演示网站的访问范围。
+上述步骤用于创建独立的新仓库。维护当前仓库时，请先克隆 https://github.com/huangkang9/zhujian-studio ，再提交与推送后续修改。演示网站已按公开预览要求开放为持链接可访问，入口见 README；访客项目仍只保存在各自浏览器中。
 
 ## 运行与验证
 
