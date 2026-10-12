@@ -1,4 +1,4 @@
-import {clone,normalizeProject,uid} from './model.js?v=0.12';
+import {clone,normalizeProject,uid} from './model.js?v=0.12.1';
 /** Each project is a separate IndexedDB record. Legacy key `last` remains readable. */
 export class ProjectStore {
  constructor(factory=globalThis.indexedDB){this.factory=factory;this.queue=Promise.resolve();}

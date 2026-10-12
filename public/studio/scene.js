@@ -1,11 +1,11 @@
-import {fitoutSettings,roomEdges,ceilingHeight,kelvinColor,lightSettings} from './fitout.js?v=0.12';
-import {surfaceMaterial} from './surface-material.js?v=0.12';
-import {atmosphereSceneMethods,finishMaterial,wallUV} from './atmosphere-scene.js?v=0.12';
-import {createFurniture,studioEnvironment} from './furniture-3d.js?v=0.12';
-import {WalkController} from './walk.js?v=0.12';
+import {fitoutSettings,roomEdges,ceilingHeight,kelvinColor,lightSettings} from './fitout.js?v=0.12.1';
+import {surfaceMaterial} from './surface-material.js?v=0.12.1';
+import {atmosphereSceneMethods,finishMaterial,wallUV} from './atmosphere-scene.js?v=0.12.1';
+import {createFurniture,studioEnvironment} from './furniture-3d.js?v=0.12.1';
+import {WalkController} from './walk.js?v=0.12.1';
 import * as THREE from './vendor/three.module.js';
 import {OrbitControls} from './vendor/OrbitControls.js';
-import {wallPoints,wallLength,findRooms,bounds,clamp} from './model.js?v=0.12';
+import {wallPoints,wallLength,findRooms,bounds,clamp} from './model.js?v=0.12.1';
 const M=.001;
 
 // Procedural, repeatable textures. No CDN or image download at runtime.

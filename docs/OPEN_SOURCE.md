@@ -1,6 +1,6 @@
 # GitHub 开源发布准备
 
-V0.12 使用干净源码快照发布于 https://github.com/huangkang9/zhujian-studio 。项目简介：`Local-first bilingual floor plan editor with CAD export and 3D furnishing.`
+V0.12 使用干净源码快照发布于 https://github.com/kang340/zhujian-studio 。项目简介：`Local-first bilingual floor plan editor with CAD export and 3D furnishing.`
 
 ## 使用干净快照创建仓库
 
@@ -12,7 +12,7 @@ git add .
 git commit -m "Initial open-source release"
 ```
 
-上述步骤用于创建独立的新仓库。维护当前仓库时，请先克隆 https://github.com/huangkang9/zhujian-studio ，再提交与推送后续修改。演示网站已按公开预览要求开放为持链接可访问，入口见 README；访客项目仍只保存在各自浏览器中。
+上述步骤用于创建独立的新仓库。维护当前仓库时，请先克隆 https://github.com/kang340/zhujian-studio ，再提交与推送后续修改。演示网站已按公开预览要求开放为持链接可访问，入口见 README；访客项目仍只保存在各自浏览器中。
 
 ## 运行与验证
 

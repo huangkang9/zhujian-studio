@@ -1,6 +1,6 @@
-import {localizeMarkup,getLanguage} from './i18n.js?v=0.12';
-import {bounds,wallPoints,findRooms} from './model.js?v=0.12';
-import {renderPlan,esc} from './plan.js?v=0.12';
+import {localizeMarkup,getLanguage} from './i18n.js?v=0.12.1';
+import {bounds,wallPoints,findRooms} from './model.js?v=0.12.1';
+import {renderPlan,esc} from './plan.js?v=0.12.1';
 export const printScales=[25,50,75,100,150,200,500];
 export function printLayout(p,{paper='A3',orientation='landscape',scale=100,furniture=true}={}){
  if(!['A4','A3'].includes(paper)||!['landscape','portrait'].includes(orientation)||!printScales.includes(+scale))throw Error('不支持的纸张或比例');

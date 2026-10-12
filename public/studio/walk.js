@@ -1,5 +1,5 @@
-import {ceilingHeight} from './fitout.js?v=0.12';
-import {findRooms,pointInPolygon,wallPoints,projectPoint,wallLength} from './model.js?v=0.12';
+import {ceilingHeight} from './fitout.js?v=0.12.1';
+import {findRooms,pointInPolygon,wallPoints,projectPoint,wallLength} from './model.js?v=0.12.1';
 /** Collision in mm. Circular visitor radius; doors pass only when visibly open. */
 export function walkable(p,pt,{radius=180,eyeHeight=1600,rooms=findRooms(p),furniture=true}={}){
  const room=rooms.find(r=>pointInPolygon(pt,r.points));if(!room)return false;

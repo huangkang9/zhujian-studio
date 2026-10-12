@@ -1,6 +1,6 @@
-import {t,localizeMarkup} from './i18n.js?v=0.12';
-import {bounds,wallPoints,wallLength,findRooms,furnitureCorners,furnitureTypes} from './model.js?v=0.12';
-import {esc,renderPlan} from './plan.js?v=0.12';
+import {t,localizeMarkup} from './i18n.js?v=0.12.1';
+import {bounds,wallPoints,wallLength,findRooms,furnitureCorners,furnitureTypes} from './model.js?v=0.12.1';
+import {esc,renderPlan} from './plan.js?v=0.12.1';
 export function dxfString(p){const b=bounds(p),E=[],B=[],blocks=[];const pair=(a,v)=>`${a}\n${typeof v==='number'?Number(v.toFixed(5)):v}\n`;const entity=(target,type,layer,values)=>target.push(pair(0,type)+pair(8,layer)+values.map(([c,v])=>pair(c,v)).join(''));const pt=(a)=>({x:a.x,y:-a.y});
  const line=(target,a,b,layer)=>entity(target,'LINE',layer,[[10,a.x],[20,a.y],[30,0],[11,b.x],[21,b.y],[31,0]]);
  const text=(target,s,x,y,height,layer,angle=0,raw=false)=>entity(target,'TEXT',layer,[[10,x],[20,y],[30,0],[40,height],[1,String(raw?s:t(s)).replace(/[\r\n]/g,' ')],[50,angle],[7,'STANDARD']]);

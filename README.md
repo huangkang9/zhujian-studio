@@ -1,16 +1,20 @@
-# 筑间 · 手绘到空间 V0.12
+# 筑间 · 手绘到空间 V0.12.1
 
 一个支持多项目的本地户型编辑工作台：草图底图 → 精确二维编辑 → CAD 尺寸图 → 三维家居布置。
 
 ## 在线体验 / Live Demo
 
-### [→ 点击打开筑间工作台 / Launch Studio](https://zhu-jian-floorplan.bubbly-giant-7985.chatgpt.site)
+### [→ 点击打开筑间工作台 / Launch Studio](https://zhu-jian-floorplan.bubbly-giant-7985.chatgpt.site/studio/?demo=showcase)
 
-无需安装，打开后点击「探索晴川雅居」，即可体验二维户型编辑、三维家具布置、材质与颜色修改，以及 CAD / SVG 导出。右上角可切换中文 / English，建议使用支持 WebGL 的桌面浏览器。
+无需安装，此链接会先保存上次方案，再直接打开全新的「晴川雅居」示例，即可体验二维户型编辑、三维家具布置、材质与颜色修改，以及 CAD / SVG 导出。右上角可切换中文 / English，建议使用支持 WebGL 的桌面浏览器。
 
 演示站对持链接的访客开放。项目保存在当前浏览器，不会共享给其他访客；内置户型为原创示例，不包含个人草图。编辑与示例尺寸审查无需 API Key；实时 AI 识别仍需登录并配置自己的 API，示例审查不是实时 AI 识别。
 
-Open the demo, choose “晴川雅居”, and switch to English with the language button. Projects stay in your browser. Live AI recognition requires sign-in and your own API configuration.
+The demo link opens a fresh showcase project after saving your previous work. Switch to English with the language button. Projects stay in your browser. Live AI recognition requires sign-in and your own API configuration.
+
+## V0.12.1：新版示例入口
+
+普通打开先显示新版主页；「返回工作台」继续上次方案。「探索晴川雅居」建立独立示例副本，不覆盖已有户型。无需清空浏览器数据。
 
 ## V0.12：原创示例与开源准备
 
@@ -22,7 +26,7 @@ Open the demo, choose “晴川雅居”, and switch to English with the languag
 - 示例图、可导入项目 JSON、尺寸审查教学数据由同一模型生成：`node scripts/build-showcase.mjs`。它不是 AI 识别结果。
 - 已有项目中的停用内置底图引用在打开时移除；用户已编辑的墙体与家具保留。自行上传的图片仍由用户管理。
 - 原创代码和示例采用 MIT；Three.js 的独立版权声明保留。见 [LICENSE](LICENSE)、[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
-- GitHub 发布步骤见 [docs/OPEN_SOURCE.md](docs/OPEN_SOURCE.md)。使用本版干净源码包创建新仓库，不推送以前含个人素材的 Git 历史。源码仓库：[huangkang9/zhujian-studio](https://github.com/huangkang9/zhujian-studio)。
+- GitHub 发布步骤见 [docs/OPEN_SOURCE.md](docs/OPEN_SOURCE.md)。使用本版干净源码包创建新仓库，不推送以前含个人素材的 Git 历史。源码仓库：[kang340/zhujian-studio](https://github.com/kang340/zhujian-studio)。
 
 ## V0.11：中文 / English
 

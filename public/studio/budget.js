@@ -1,8 +1,8 @@
-import {t,getLanguage} from './i18n.js?v=0.12';
-import {uid,findRooms,pointInPolygon,furnitureTypes} from './model.js?v=0.12';
-import {roomQuantities} from './fitout.js?v=0.12';
-import {surfaceState,styleById} from './surface-styles.js?v=0.12';
-import {normalizeDetails} from './project-details.js?v=0.12';
+import {t,getLanguage} from './i18n.js?v=0.12.1';
+import {uid,findRooms,pointInPolygon,furnitureTypes} from './model.js?v=0.12.1';
+import {roomQuantities} from './fitout.js?v=0.12.1';
+import {surfaceState,styleById} from './surface-styles.js?v=0.12.1';
+import {normalizeDetails} from './project-details.js?v=0.12.1';
 const cent=n=>Math.round((n+Number.EPSILON)*100)/100;
 export function budgetSettings(p){return{currency:'CNY',target:0,reserve:0,rates:{},custom:[],...p.budget};}
 export function budgetRows(p){

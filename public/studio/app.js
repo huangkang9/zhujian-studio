@@ -1,25 +1,26 @@
-import {installLanguage,t,matches} from './i18n.js?v=0.12';
-import {defaultLayers,structureNames,normalizeStructure,assertStructurePreserved} from './structure.js?v=0.12';
-import {snapMeasurement} from './measurement-snap.js?v=0.12';
-import {fitoutEditor} from './fitout-ui.js?v=0.12';
-import {ceilingHeight} from './fitout.js?v=0.12';
-import {normalizeDetails} from './project-details.js?v=0.12';
-import {installBudget} from './budget-ui.js?v=0.12';
-import {installDelivery} from './delivery-ui.js?v=0.12';
-import {Autosave} from './autosave.js?v=0.12';
-import {surfaceEditor} from './surface-editor.js?v=0.12';
-import {installAtmosphere} from './atmosphere-ui.js?v=0.12';
-import {atmosphereSettings} from './atmosphere.js?v=0.12';
-import {movePlacement,placementError} from './placement.js?v=0.12';
-import {installRecognition} from './recognition-ui.js?v=0.12';
-import {furnitureCategories,resizeFurniture,furnitureValid} from './furniture-catalog.js?v=0.12';
-import {installImmersive} from './immersive-ui.js?v=0.12';
-import {clone,uid,emptyProject,demoProject,normalizeProject,distance,round,clamp,bounds,wallPoints,wallLength,findRooms,nearestWall,projectPoint,addWall,setWallLength,openingValid,validateProject,furnitureTypes,furnitureHitsWall,moveNodesConstrained,addRectangle} from './model.js?v=0.12';
-import {renderPlan,furnitureSVG,furnitureIcon,esc} from './plan.js?v=0.12';
-import {download} from './export.js?v=0.12';
-import {ProjectStore} from './workspace-store.js?v=0.12';
-import {installStudio} from './studio-ui.js?v=0.12';
-import {decorateIcons,icon} from './icons.js?v=0.12';
+import {installLanguage,t,matches} from './i18n.js?v=0.12.1';
+import {defaultLayers,structureNames,normalizeStructure,assertStructurePreserved} from './structure.js?v=0.12.1';
+import {snapMeasurement} from './measurement-snap.js?v=0.12.1';
+import {fitoutEditor} from './fitout-ui.js?v=0.12.1';
+import {ceilingHeight} from './fitout.js?v=0.12.1';
+import {normalizeDetails} from './project-details.js?v=0.12.1';
+import {installBudget} from './budget-ui.js?v=0.12.1';
+import {installDelivery} from './delivery-ui.js?v=0.12.1';
+import {Autosave} from './autosave.js?v=0.12.1';
+import {surfaceEditor} from './surface-editor.js?v=0.12.1';
+import {installAtmosphere} from './atmosphere-ui.js?v=0.12.1';
+import {atmosphereSettings} from './atmosphere.js?v=0.12.1';
+import {movePlacement,placementError} from './placement.js?v=0.12.1';
+import {installRecognition} from './recognition-ui.js?v=0.12.1';
+import {furnitureCategories,resizeFurniture,furnitureValid} from './furniture-catalog.js?v=0.12.1';
+import {installImmersive} from './immersive-ui.js?v=0.12.1';
+import {clone,uid,emptyProject,demoProject,normalizeProject,distance,round,clamp,bounds,wallPoints,wallLength,findRooms,nearestWall,projectPoint,addWall,setWallLength,openingValid,validateProject,furnitureTypes,furnitureHitsWall,moveNodesConstrained,addRectangle} from './model.js?v=0.12.1';
+import {renderPlan,furnitureSVG,furnitureIcon,esc} from './plan.js?v=0.12.1';
+import {download} from './export.js?v=0.12.1';
+import {ProjectStore} from './workspace-store.js?v=0.12.1';
+import {installStudio} from './studio-ui.js?v=0.12.1';
+import {openWorkspace} from './startup.js?v=0.12.1';
+import {decorateIcons,icon} from './icons.js?v=0.12.1';
 const vault=new ProjectStore();let studio=null,immersive=null,recognition=null,atmosphere=null,delivery=null,budget=null,editRevision=0;
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 let project=demoProject(),scene=null,sceneLoading=null,history=[],future=[],loadRequest=0,toastTimer,drag=null,dragBefore=null,lastSceneTime=0;
@@ -112,7 +113,7 @@ function addFurniture(type){const b=bounds(project),r=ui.selected?.kind==='room'
 function rotateFurniture(){if(ui.selected?.kind!=='furniture')return;const f=project.furniture.find(f=>f.id===ui.selected.id);mutate(()=>f.rotation=(f.rotation+90)%360);}
 function deleteSelected(){const s=ui.selected;if(!s)return;mutate(()=>{if(s.kind==='wall'){project.walls=project.walls.filter(w=>w.id!==s.id);project.openings=project.openings.filter(o=>o.wall!==s.id);const active=new Set(project.walls.flatMap(w=>[w.a,w.b]));project.nodes=project.nodes.filter(n=>active.has(n.id));}else if(s.kind==='opening')project.openings=project.openings.filter(o=>o.id!==s.id);else if(s.kind==='measure')project.measurements=project.measurements.filter(m=>m.id!==s.id);else if(s.kind==='furniture')project.furniture=project.furniture.filter(f=>f.id!==s.id);ui.selected=null;});}
 async function setView(mode){if(atmosphere?.active&&mode!=='3d')atmosphere.exit();if(immersive?.active&&mode!=='3d')immersive.exit();if(mode==='split'&&innerWidth<680){mode='3d';toast('小屏幕使用全屏三维视图');}ui.viewMode=mode;$('#canvasArea').dataset.view=mode;$$('[data-view]').filter(b=>b.tagName==='BUTTON').forEach(b=>b.classList.toggle('active',b.dataset.view===mode));if(mode!=='2d')await ensureScene();requestAnimationFrame(()=>{resizePlan();scene?.resize();});}
-async function ensureScene(){if(scene)return scene;if(sceneLoading)return sceneLoading;sceneLoading=(async()=>{try{$('#threeCanvas').setAttribute('aria-busy','true');const{RoomScene}=await import('./scene.js?v=0.12');scene=new RoomScene($('#threeCanvas'),{select:s=>select(s.kind,s.id),placeClick:(e,item)=>atmosphere?.handleCanvas(e,item),dragStart:()=>{dragBefore=clone(project);},drag:(id,x,y)=>{const f=project.furniture.find(f=>f.id===id);if(!f)return;if(atmosphere?.active){const result=movePlacement(project,f,x,y,atmosphereSettings(project));if(!result.error){f.x=result.candidate.x;f.y=result.candidate.y;}}else{f.x=round(x,ui.snap?100:1);f.y=round(y,ui.snap?100:1);}renderCanvas();return f;},dragRotate:(id,delta)=>{const f=project.furniture.find(f=>f.id===id);if(!f)return;const candidate={...f,rotation:(f.rotation+delta+360)%360};if(atmosphere?.active&&atmosphereSettings(project).collision&&placementError(project,candidate))return f;f.rotation=candidate.rotation;renderCanvas();return f;},dragEnd:cancel=>finishDrag(cancel),message:toast});syncScene();}catch(e){$('#threeCanvas').innerHTML='<div style="padding:90px 30px;line-height:2;color:#758773">此浏览器无法启动 WebGL 三维渲染。请使用支持 WebGL 的桌面浏览器并开启硬件加速。二维编辑与 CAD 导出仍可使用。</div>';console.error(e);}finally{sceneLoading=null;$('#threeCanvas').setAttribute('aria-busy','false');}})();return sceneLoading;}
+async function ensureScene(){if(scene)return scene;if(sceneLoading)return sceneLoading;sceneLoading=(async()=>{try{$('#threeCanvas').setAttribute('aria-busy','true');const{RoomScene}=await import('./scene.js?v=0.12.1');scene=new RoomScene($('#threeCanvas'),{select:s=>select(s.kind,s.id),placeClick:(e,item)=>atmosphere?.handleCanvas(e,item),dragStart:()=>{dragBefore=clone(project);},drag:(id,x,y)=>{const f=project.furniture.find(f=>f.id===id);if(!f)return;if(atmosphere?.active){const result=movePlacement(project,f,x,y,atmosphereSettings(project));if(!result.error){f.x=result.candidate.x;f.y=result.candidate.y;}}else{f.x=round(x,ui.snap?100:1);f.y=round(y,ui.snap?100:1);}renderCanvas();return f;},dragRotate:(id,delta)=>{const f=project.furniture.find(f=>f.id===id);if(!f)return;const candidate={...f,rotation:(f.rotation+delta+360)%360};if(atmosphere?.active&&atmosphereSettings(project).collision&&placementError(project,candidate))return f;f.rotation=candidate.rotation;renderCanvas();return f;},dragEnd:cancel=>finishDrag(cancel),message:toast});syncScene();}catch(e){$('#threeCanvas').innerHTML='<div style="padding:90px 30px;line-height:2;color:#758773">此浏览器无法启动 WebGL 三维渲染。请使用支持 WebGL 的桌面浏览器并开启硬件加速。二维编辑与 CAD 导出仍可使用。</div>';console.error(e);}finally{sceneLoading=null;$('#threeCanvas').setAttribute('aria-busy','false');}})();return sceneLoading;}
 function update3DControls(){
  $('#cutHeightControl').hidden=ui.wallMode!=='low';
  $('#wallModeHint').textContent={auto:'朝向镜头的外墙自动淡化，门窗保持完整。',full:'完整展示墙体和门窗，可切换俯视查看内部。',low:'仅降低墙面；门窗按真实高度完整展示。'}[ui.wallMode];
@@ -183,6 +184,7 @@ budget=installBudget({project:()=>project,modal,mutate,undo,download,name:safeNa
 $('#budgetBtn').onclick=()=>budget.open();
 $('#drawingChecksBtn').onclick=()=>delivery.checks();
 update3DControls();decorateIcons();$('#rectangleBtn span').innerHTML=icon('rectangle');render();requestAnimationFrame(()=>fitPlan());
-(async()=>{const initialRevision=editRevision;try{const data=await vault.active();if(data&&editRevision===initialRevision&&loadRequest===0){project=data;render();fitPlan(!project.nodes.length&&!!project.background);$('#saveStatus').textContent='已恢复上次编辑';await vault.save(project);}else if(!data&&editRevision===initialRevision&&loadRequest===0)studio.home();}catch(e){console.warn('Local restore unavailable',e);$('#saveStatus').textContent='请下载 JSON 备份';}})();
+const initialRevision=editRevision;
+openWorkspace({vault,canRestore:()=>editRevision===initialRevision&&loadRequest===0,restore:data=>{project=data;render();fitPlan(!project.nodes.length&&!!project.background);$('#saveStatus').textContent='已恢复上次编辑';},home:()=>studio.home(),openExample:()=>studio.example(),exampleRequested:new URLSearchParams(globalThis.location?.search||'').get('demo')==='showcase',onError:e=>{console.warn('Local restore unavailable',e);$('#saveStatus').textContent='请下载 JSON 备份';}});
 
 installLanguage();

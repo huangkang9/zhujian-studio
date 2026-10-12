@@ -1,5 +1,5 @@
-import {doorSweepConflicts,overheadConflicts} from './door-clearance.js?v=0.12';
-import {findRooms,wallPoints,wallLength,openingValid,intersection,projectPoint,furnitureHitsWall,pointInPolygon} from './model.js?v=0.12';
+import {doorSweepConflicts,overheadConflicts} from './door-clearance.js?v=0.12.1';
+import {findRooms,wallPoints,wallLength,openingValid,intersection,projectPoint,furnitureHitsWall,pointInPolygon} from './model.js?v=0.12.1';
 /** Advisory geometry checks. These do not certify measured dimensions or construction compliance. */
 export function drawingChecks(p){
  const issues=[],rooms=findRooms(p),degree=new Map(),used=new Map();

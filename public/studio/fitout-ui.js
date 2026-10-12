@@ -1,6 +1,6 @@
-import {fitoutSettings,lightSettings,setFitout,ceilingHeight,roomHeight} from './fitout.js?v=0.12';
-import {normalizeDetails} from './project-details.js?v=0.12';
-import {findRooms,furnitureTypes} from './model.js?v=0.12';
+import {fitoutSettings,lightSettings,setFitout,ceilingHeight,roomHeight} from './fitout.js?v=0.12.1';
+import {normalizeDetails} from './project-details.js?v=0.12.1';
+import {findRooms,furnitureTypes} from './model.js?v=0.12.1';
 export function fitoutEditor(container,api,prefix='fitout'){
  const p=api.project(),target=api.selected(),room=target?.kind==='room'?findRooms(p).find(r=>r.key===target.id):null,f=target?.kind==='furniture'?p.furniture.find(f=>f.id===target.id):null,isLamp=f&&furnitureTypes[f.type]?.category==='灯饰';if(!room&&!isLamp){container.innerHTML='';return;}
  const cfg=room?fitoutSettings(p.roomMeta[room.key]):null,light=room?cfg.light:lightSettings(f.light),id=s=>prefix+'-'+s;

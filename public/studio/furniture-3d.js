@@ -1,6 +1,6 @@
-import {surfaceMaterial,physicalUV} from './surface-material.js?v=0.12';
+import {surfaceMaterial,physicalUV} from './surface-material.js?v=0.12.1';
 import * as THREE from './vendor/three.module.js';
-import {furnitureTypes} from './furniture-catalog.js?v=0.12';
+import {furnitureTypes} from './furniture-catalog.js?v=0.12.1';
 const textures={};
 /** Small offline studio environment for subtle metal/glass reflections. */
 export function studioEnvironment(){

@@ -1,4 +1,4 @@
-import {furnitureTypes} from './furniture-catalog.js?v=0.12';
+import {furnitureTypes} from './furniture-catalog.js?v=0.12.1';
 const style=(id,name,targets,roughness,material='lacquer')=>({id,name,targets,roughness,material});
 export const surfaceStyles=[
  style('plain','纯色哑光',['wall','room','furniture'],.85),style('plaster','细砂艺术漆',['wall'],.98),style('brick','红砖墙',['wall'],.92,'stone'),style('subway','工字砖',['wall','room'],.38,'stone'),style('panels','护墙板',['wall'],.65,'wood'),style('slats','竖向木格栅',['wall'],.76,'wood'),

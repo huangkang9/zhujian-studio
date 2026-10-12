@@ -1,7 +1,7 @@
-import {drawingChecks,checkTargetPoint} from './drawing-checks.js?v=0.12';
-import {printScales,printLayout,printSheetSVG,printDocument} from './print-sheet.js?v=0.12';
-import {dxfString,svgString} from './export.js?v=0.12';
-import {esc} from './plan.js?v=0.12';
+import {drawingChecks,checkTargetPoint} from './drawing-checks.js?v=0.12.1';
+import {printScales,printLayout,printSheetSVG,printDocument} from './print-sheet.js?v=0.12.1';
+import {dxfString,svgString} from './export.js?v=0.12.1';
+import {esc} from './plan.js?v=0.12.1';
 export function installDelivery(api){
  const $=s=>document.querySelector(s);let printOptions={paper:'A3',orientation:'landscape',scale:100,furniture:true};
  function checks(){

@@ -10,6 +10,7 @@ test('complete non-WebGL DOM flow: resize, furnishings, rectangle, measurement, 
  const dialog=$('#modal');dialog.showModal=()=>dialog.open=true;dialog.close=()=>{dialog.open=false;dialog.dispatchEvent(new window.Event('close'));};
  function pointer(target,type,x=0,y=0){const e=new window.Event(type,{bubbles:true});Object.assign(e,{button:0,clientX:x,clientY:y,pointerId:1,shiftKey:false});target.dispatchEvent(e);}
  await import('../public/studio/app.js');await new Promise(r=>setTimeout(r,30));
+ assert.equal($('#home').hidden,false);assert.equal($('#homeActiveName').textContent,'晴川雅居 · 原创示例');$('#homeResume').onclick();assert.equal($('#home').hidden,true);
  assert.ok($('#objectCount').textContent.includes('25 面墙'));assert.equal(document.querySelectorAll('button.room-item').length,8);
  pointer($('#plan [data-kind="wall"][data-id="w0"]'),'pointerdown');pointer(svg,'pointerup');Object.defineProperty($('#wallAnchor'),'value',{value:'a',configurable:true});$('#wallLength').value='4200';$('#wallLength').onchange({target:$('#wallLength')});assert.equal(Number($('#wallLength').value),4200);
  Object.defineProperty($('#wallAnchor'),'value',{value:'a',configurable:true});$('#wallLength').value='2500';$('#wallLength').onchange({target:$('#wallLength')});assert.equal(Number($('#wallLength').value),4200);assert.ok($('#toast').textContent.includes('门窗超出'));
@@ -50,7 +51,7 @@ test('complete non-WebGL DOM flow: resize, furnishings, rectangle, measurement, 
  await $('#retrySave').onclick();const structuralSaved=await store.active();assert.equal(structuralSaved.walls[0].structure,'bearing');assert.equal(structuralSaved.layers.structure,true);
  pointer($('#plan [data-kind="wall"]'),'pointerdown');pointer(svg,'pointerup');$('#wallStructure').onchange({target:{value:'partition'}});assert.ok($('#confirmStructure'));$('#keepStructure').onclick();assert.equal($('#deleteSelected').disabled,true);
  // Real app flow in English, without reloading or committing pending inputs.
- const {setLanguage}=await import('../public/studio/i18n.js?v=0.12');
+ const {setLanguage}=await import('../public/studio/i18n.js?v=0.12.1');
  const waitLanguage=()=>new Promise(resolve=>setTimeout(resolve,0));
  $('#projectName').value='尚未提交的中文项目名';setLanguage('en');await waitLanguage();
  assert.equal($('#projectName').value,'尚未提交的中文项目名');assert.ok($('#exportBtn').textContent.includes('Export plans'));assert.equal(document.documentElement.lang,'en');

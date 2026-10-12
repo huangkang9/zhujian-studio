@@ -1,6 +1,6 @@
-import {findRooms,wallLength} from './model.js?v=0.12';
-import {fitoutSettings,normalizeDetails} from './project-details.js?v=0.12';
-export {fitoutSettings,lightSettings} from './project-details.js?v=0.12';
+import {findRooms,wallLength} from './model.js?v=0.12.1';
+import {fitoutSettings,normalizeDetails} from './project-details.js?v=0.12.1';
+export {fitoutSettings,lightSettings} from './project-details.js?v=0.12.1';
 export function roomEdges(p,room){return room.ids.map((id,i)=>{const next=room.ids[(i+1)%room.ids.length],wall=p.walls.find(w=>w.a===id&&w.b===next||w.a===next&&w.b===id);return wall?{wall,side:wall.a===id?1:-1}:null;}).filter(Boolean);}
 export function roomHeight(p,room){const edges=roomEdges(p,room);return edges.length?Math.min(...edges.map(e=>e.wall.height)):p.defaults.height;}
 export function ceilingHeight(p,room){const c=fitoutSettings(p.roomMeta[room.key]).ceiling;return roomHeight(p,room)-(c.enabled?c.drop:0);}

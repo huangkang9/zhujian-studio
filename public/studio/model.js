@@ -1,7 +1,7 @@
-import {normalizeStructure} from './structure.js?v=0.12';
-import {normalizeDetails} from './project-details.js?v=0.12';
-import {normalizeSurfaces} from './surface-styles.js?v=0.12';
-import {normalizeAtmosphere} from './atmosphere.js?v=0.12';
+import {normalizeStructure} from './structure.js?v=0.12.1';
+import {normalizeDetails} from './project-details.js?v=0.12.1';
+import {normalizeSurfaces} from './surface-styles.js?v=0.12.1';
+import {normalizeAtmosphere} from './atmosphere.js?v=0.12.1';
 /** Canonical project coordinates are millimetres. No renderer owns geometry. */
 export const VERSION=1;
 export const uid=(prefix='id')=>prefix+'_'+Math.random().toString(36).slice(2,10);
@@ -9,8 +9,8 @@ export const clone=x=>JSON.parse(JSON.stringify(x));
 export const distance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
 export const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
 export const round=(x,step=1)=>Math.round(x/step)*step;
-import {furnitureTypes,furnitureValid,materialNames} from './furniture-catalog.js?v=0.12';
-export {furnitureTypes} from './furniture-catalog.js?v=0.12';
+import {furnitureTypes,furnitureValid,materialNames} from './furniture-catalog.js?v=0.12.1';
+export {furnitureTypes} from './furniture-catalog.js?v=0.12.1';
 export function emptyProject(){return {version:VERSION,id:uid('project'),name:'我的新户型',unit:'mm',nodes:[],walls:[],openings:[],furniture:[],roomMeta:{},defaults:{thickness:200,height:2800,wallColor:'#eeeade',floorColor:'#ded5bd',floorStyle:'wood'},background:null,notes:'',example:false};}
 export function demoProject(){
  const p=emptyProject();p.name='晴川雅居 · 原创示例';p.example=true;p.demoVersion=12;p.notes='原创展示户型：两卧、书房、双卫与独立厨房。129.6 m² 为墙体轴线围合面积；仅用于软件演示，不是实测或施工图。';

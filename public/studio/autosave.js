@@ -1,4 +1,4 @@
-import {clone} from './model.js?v=0.12';
+import {clone} from './model.js?v=0.12.1';
 /** Revision-aware saves: completion of an older write cannot mark newer edits saved. */
 export class Autosave {
  constructor(store,onState=()=>{},delay=450){this.store=store;this.onState=onState;this.delay=delay;this.revision=0;this.savedRevision=0;this.pending=null;this.timer=null;this.flight=null;}

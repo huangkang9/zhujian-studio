@@ -1,6 +1,6 @@
-import {walkable} from './walk.js?v=0.12';
-import {esc} from './plan.js?v=0.12';
-import {bounds,findRooms,wallPoints,pointInPolygon} from './model.js?v=0.12';
+import {walkable} from './walk.js?v=0.12.1';
+import {esc} from './plan.js?v=0.12.1';
+import {bounds,findRooms,wallPoints,pointInPolygon} from './model.js?v=0.12.1';
 export function installImmersive(api){
  const $=s=>document.querySelector(s),pane=$('#threePane');
  const btn=document.createElement('button');btn.id='enterWalk';btn.className='enter-walk';btn.innerHTML='<span>◉</span> 进入房间 <small>沉浸漫游</small>';pane.appendChild(btn);

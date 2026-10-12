@@ -1,20 +1,31 @@
-import {matches,locale} from './i18n.js?v=0.12';
-import {clone,uid,emptyProject,demoProject,addRectangle,addWall,findRooms,bounds} from './model.js?v=0.12';
-import {renderPlan,esc} from './plan.js?v=0.12';
-import {icon} from './icons.js?v=0.12';
-import {detectLines,pixelToWorld} from './trace.js?v=0.12';
+import {matches,locale} from './i18n.js?v=0.12.1';
+import {clone,uid,emptyProject,demoProject,addRectangle,addWall,findRooms,bounds} from './model.js?v=0.12.1';
+import {renderPlan,esc} from './plan.js?v=0.12.1';
+import {icon} from './icons.js?v=0.12.1';
+import {detectLines,pixelToWorld} from './trace.js?v=0.12.1';
 const $=s=>document.querySelector(s);
 export function installStudio(api){
  const {vault,modal,toast}=api;
- let traceWorker=null,traceRun=0;
+ let traceWorker=null,traceRun=0,openingExample=false;
  const thumbnail=p=>{const b=bounds(p),pad=Math.max(b.w,b.h)*.08,view={x:b.x-pad,y:b.y-pad,w:b.w+pad*2,h:b.h+pad*2};return `<svg viewBox="${view.x} ${view.y} ${view.w} ${view.h}" aria-hidden="true">${renderPlan(p,{view,width:500,dims:false,furniture:true},{exporting:true})}</svg>`;};
  const relativeTime=t=>t?new Intl.DateTimeFormat(locale(),{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}).format(new Date(t)):'未保存';
  async function home(){
   const el=$('#home');el.hidden=false;document.body.dataset.home='true';document.querySelectorAll('.header,.workflow,.workspace,.statusbar').forEach(n=>n.setAttribute('inert',''));$('.skip-link').href='#homeResume';$('#homeResume').focus();
   $('#homeArtwork').innerHTML=thumbnail(demoProject());
+  $('#homeActiveName').textContent=api.getProject().name;
   await api.persist();await renderProjects();
  }
  function closeHome(){ $('#home').hidden=true;delete document.body.dataset.home;document.querySelectorAll('.header,.workflow,.workspace,.statusbar').forEach(n=>n.removeAttribute('inert'));$('.skip-link').href='#plan';$('#projectName').focus(); }
+ async function example(){
+  if(openingExample)return false;
+  openingExample=true;$('#homeExample').disabled=true;
+  try {
+   if(await api.load(demoProject())===false)return false;
+   closeHome();
+   if(globalThis.location){const url=new URL(location.href);if(url.searchParams.get('demo')==='showcase'){url.searchParams.delete('demo');try{window.history.replaceState(null,'',url.href);}catch{}}}
+   api.view('split');return true;
+  }finally{openingExample=false;$('#homeExample').disabled=false;}
+ }
  async function renderProjects(){
   const el=$('#projectCards');let items=[];try{items=await vault.list();}catch{el.innerHTML='<p class="quiet">浏览器存储不可用，仍可通过 JSON 文件打开和保存项目。</p>';return;}
   el.innerHTML=items.length?items.map(p=>`<article class="project-card"><button class="project-preview" data-project="${esc(p.id)}" aria-label="打开 ${esc(p.name)}">${thumbnail(p)}</button><div class="project-card-meta"><button data-i18n-user class="project-card-title" data-project="${esc(p.id)}">${esc(p.name)}</button><span>${findRooms(p).length} 个空间 · ${relativeTime(p.updatedAt)}</span><div class="project-card-actions"><button data-copy-project="${esc(p.id)}">复制方案</button><button data-delete-project="${esc(p.id)}" aria-label="删除 ${esc(p.name)}">${icon('trash',15)}</button></div></div></article>`).join(''):'<p class="quiet">从上方创建第一个项目。你的方案会自动出现在这里。</p>';
@@ -43,7 +54,7 @@ export function installStudio(api){
   };
   const run=async()=>{
    const runId=++traceRun;$('#rerunTrace').disabled=true;$('#acceptTrace').disabled=true;$('#traceCount').textContent='提取中…';const options={threshold:+$('#traceThreshold').value,minLength:+$('#traceMin').value};
-   try{if(typeof Worker!=='undefined'){traceWorker?.terminate();traceWorker=new Worker('./trace-worker.js?v=0.12',{type:'module'});lines=await new Promise((resolve,reject)=>{const timer=setTimeout(()=>reject(Error('提取超时，请缩小图片重试')),15000);traceWorker.onmessage=e=>{clearTimeout(timer);e.data.error?reject(Error(e.data.error)):resolve(e.data.lines);};traceWorker.onerror=()=>{clearTimeout(timer);reject(Error('浏览器无法启动图像处理，请换用手工描图'));};traceWorker.postMessage({image:{width:w,height:h,data:imageData.data},options});});}else lines=detectLines(imageData,options);if(runId!==traceRun||!$('#tracePreview'))return;render();if(!lines.length)$('#traceCount').textContent='没有找到足够长的线条，可提高阈值或降低最短线条。';}catch(e){if($('#traceCount'))$('#traceCount').textContent=e.message;}finally{if($('#rerunTrace'))$('#rerunTrace').disabled=false;}
+   try{if(typeof Worker!=='undefined'){traceWorker?.terminate();traceWorker=new Worker('./trace-worker.js?v=0.12.1',{type:'module'});lines=await new Promise((resolve,reject)=>{const timer=setTimeout(()=>reject(Error('提取超时，请缩小图片重试')),15000);traceWorker.onmessage=e=>{clearTimeout(timer);e.data.error?reject(Error(e.data.error)):resolve(e.data.lines);};traceWorker.onerror=()=>{clearTimeout(timer);reject(Error('浏览器无法启动图像处理，请换用手工描图'));};traceWorker.postMessage({image:{width:w,height:h,data:imageData.data},options});});}else lines=detectLines(imageData,options);if(runId!==traceRun||!$('#tracePreview'))return;render();if(!lines.length)$('#traceCount').textContent='没有找到足够长的线条，可提高阈值或降低最短线条。';}catch(e){if($('#traceCount'))$('#traceCount').textContent=e.message;}finally{if($('#rerunTrace'))$('#rerunTrace').disabled=false;}
   };
   $('#rerunTrace').onclick=run;$('#traceSelectAll').onclick=()=>{lines.forEach(l=>l.selected=true);render();};$('#traceSelectNone').onclick=()=>{lines.forEach(l=>l.selected=false);render();};
   $('#acceptTrace').onclick=async()=>{let draft=emptyProject(),skipped=0;draft.name=baseName+' · 线条初稿';draft.background=source;draft.defaults=defaults;draft.notes='本地线条提取初稿。需核对墙体、门窗和每段实测尺寸。';for(const l of lines.filter(l=>l.selected)){const trial=clone(draft);try{addWall(trial,pixelToWorld(l.a,source,w,h),pixelToWorld(l.b,source,w,h));draft=trial;}catch{skipped++;}}if(!draft.walls.length){toast('没有可导入的有效墙线，请调整候选或底图比例');return;}if(await api.load(draft)===false)return;$('#modal').close();api.fit();api.showSketch();toast(`已生成 ${draft.walls.length} 段墙体${skipped?'，'+skipped+' 条候选需手工处理':''}，请校正尺寸`);};run();
@@ -53,8 +64,9 @@ export function installStudio(api){
   modal('你想做什么？',`<input id="commandSearch" type="search" placeholder="搜索操作，例如：门、测量、导出" aria-label="搜索操作"><div id="commandResults" class="command-results"></div>`);
   const render=()=>{const q=$('#commandSearch').value.trim();$('#commandResults').innerHTML=actions.map(([name,action,category],i)=>({name,category,i})).filter(a=>matches(a.name,q)||matches(a.category,q)).map(a=>`<button data-command="${a.i}"><span>${a.name}</span><small>${a.category}</small></button>`).join('')||'<p class="quiet">没有匹配的操作。</p>';$('#commandResults').querySelectorAll('button').forEach(b=>b.onclick=()=>{$('#modal').close();actions[+b.dataset.command][1]();});};$('#commandSearch').oninput=render;$('#commandSearch').onkeydown=e=>{if(e.key==='ArrowDown'){e.preventDefault();$('#commandResults button')?.focus();}if(e.key==='Enter')$('#commandResults button')?.click();};render();$('#commandSearch').focus();
  }
- $('#homeBtn').onclick=home;$('#projectsBtn').onclick=projects;$('#commandBtn').onclick=command;$('#rectangleBtn').onclick=rectangle;$('#homeResume').onclick=closeHome;$('#homeStart').onclick=async()=>{if(await api.startSketch()!==false)closeHome();};$('#homeBlank').onclick=async()=>{if(await api.createBlank()!==false)closeHome();};$('#homeExample').onclick=async()=>{if(await api.load(demoProject())===false)return;closeHome();api.view('split');};$('#homeOpen').onclick=()=>{closeHome();api.open();};$('#homeUpload').onclick=()=>{closeHome();api.showSketch();api.upload();};
+ $('#homeBtn').onclick=home;$('#projectsBtn').onclick=projects;$('#commandBtn').onclick=command;$('#rectangleBtn').onclick=rectangle;$('#homeResume').onclick=closeHome;$('#homeStart').onclick=async()=>{if(await api.startSketch()!==false)closeHome();};$('#homeBlank').onclick=async()=>{if(await api.createBlank()!==false)closeHome();};$('#homeOpen').onclick=()=>{closeHome();api.open();};$('#homeUpload').onclick=()=>{closeHome();api.showSketch();api.upload();};
  $('#modal').addEventListener('close',()=>{$('#modal').classList.remove('wide-modal');traceWorker?.terminate();traceRun++;});
- return {home,closeHome,projects,rectangle,trace,command};
+ $('#homeExample').onclick=example;
+ return {home,closeHome,projects,rectangle,trace,command,example};
 }
 export function reducedMotion(){return globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches||false;}
