@@ -2,6 +2,16 @@
 
 一个支持多项目的本地户型编辑工作台：草图底图 → 精确二维编辑 → CAD 尺寸图 → 三维家居布置。
 
+## 在线体验 / Live Demo
+
+### [→ 点击打开筑间工作台 / Launch Studio](https://zhu-jian-floorplan.bubbly-giant-7985.chatgpt.site)
+
+无需安装，打开后点击「探索晴川雅居」，即可体验二维户型编辑、三维家具布置、材质与颜色修改，以及 CAD / SVG 导出。右上角可切换中文 / English，建议使用支持 WebGL 的桌面浏览器。
+
+演示站对持链接的访客开放。项目保存在当前浏览器，不会共享给其他访客；内置户型为原创示例，不包含个人草图。编辑与示例尺寸审查无需 API Key；实时 AI 识别仍需登录并配置自己的 API，示例审查不是实时 AI 识别。
+
+Open the demo, choose “晴川雅居”, and switch to English with the language button. Projects stay in your browser. Live AI recognition requires sign-in and your own API configuration.
+
 ## V0.12：原创示例与开源准备
 
 **晴川雅居**：129.6 m² 轴线围合面积，两卧＋书房、双卫、独立厨房、客餐厅与玄关，39 件可编辑家具家电。首页「探索晴川雅居」打开全新副本，不覆盖已有方案。
@@ -208,7 +218,7 @@ python -m http.server 8080 --directory public/studio
 - DXF 是可编辑的平面尺寸图；不提供 DWG、完整施工图或结构设计校核。
 - 支持物理毫米尺寸的打印图框；输出时选择实际大小 / 100% 并核对比例尺。打印驱动与纸张设置仍须实测。
 - 自动保存只在当前浏览器当前网站内，多项目分别保存。清理浏览器数据会删除缓存；请及时下载 JSON 备份。
-- 项目仍保存在本机浏览器，没有项目云同步或多人编辑。在线访问使用 Sites 身份验证；只有主动发起实时 AI 识别才将图片发送到服务端和所选模型服务商。
+- 项目仍保存在本机浏览器，没有项目云同步或多人编辑。公开演示的编辑功能无需登录；实时 AI 接口使用 Sites 身份验证，只有主动发起实时 AI 识别才将图片发送到服务端和所选模型服务商。
 
 ## 源码结构
 
