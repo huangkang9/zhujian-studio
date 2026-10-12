@@ -1,0 +1,12 @@
+node_modules/
+*.zip
+*.tar.gz
+.DS_Store
+
+dist/
+.sites-runtime/
+.wrangler/
+.next/
+.env*
+!.env.example
+*.tsbuildinfo

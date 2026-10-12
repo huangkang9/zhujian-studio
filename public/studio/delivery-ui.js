@@ -1,0 +1,29 @@
+import {drawingChecks,checkTargetPoint} from './drawing-checks.js?v=0.12';
+import {printScales,printLayout,printSheetSVG,printDocument} from './print-sheet.js?v=0.12';
+import {dxfString,svgString} from './export.js?v=0.12';
+import {esc} from './plan.js?v=0.12';
+export function installDelivery(api){
+ const $=s=>document.querySelector(s);let printOptions={paper:'A3',orientation:'landscape',scale:100,furniture:true};
+ function checks(){
+  const result=drawingChecks(api.project());
+  api.modal('图纸检查',`<p class="delivery-intro">先校正连接与尺寸，再把想法交付出去。</p><div class="check-summary"><div><b>${result.errors}</b><span>需要修正</span></div><div><b>${result.warnings}</b><span>需要确认</span></div><div><b>${result.rooms}</b><span>闭合空间</span></div></div><div class="drawing-check-list">${result.issues.length?result.issues.map(i=>`<article class="drawing-issue ${i.severity}"><span class="issue-symbol" aria-label="${{error:'错误',warning:'提醒',info:'说明'}[i.severity]}">${{error:'!',warning:'△',info:'i'}[i.severity]}</span><div><h3>${esc(i.title)}</h3><p>${esc(i.detail)}</p></div>${i.target?`<button data-locate-check="${i.id}">定位 →</button>`:''}</article>`).join(''):'<div class="check-clear"><b>本次检查未发现几何问题</b><p>仍需核对现场实测、通行净距和材料。</p></div>'}</div><p class="delivery-note">检查范围：墙体连接、共线重叠、门窗范围、家具轴线相交、房间归属、门扇开启范围与顶下净高。开启范围采用离散轮廓近似，不代替现场净距核验。不是施工图审查，也不验证 AI 识别或实测值的真实性。</p><div class="delivery-actions"><button id="downloadChecks">下载检查记录</button><button id="checksExport" class="primary">继续导出 ↗</button></div>`);
+  $('#modal').classList.add('wide-modal');
+  document.querySelectorAll('[data-locate-check]').forEach(b=>b.onclick=()=>{const issue=result.issues.find(i=>i.id===b.dataset.locateCheck);$('#modal').close();api.locate(issue.target,checkTargetPoint(api.project(),issue));});
+  $('#downloadChecks').onclick=()=>api.download(JSON.stringify({project:api.project().name,checkedAt:new Date().toISOString(),scope:'几何辅助检查，不是施工认证',...result},null,2),api.name()+'_检查记录.json','application/json');
+  $('#checksExport').onclick=exports;
+ }
+ function print(){
+  api.modal('按比例出图',`<p class="delivery-intro">一份有尺度、可复核的平面图。</p><div class="print-controls"><label>纸张<select id="printPaper"><option>A3</option><option>A4</option></select></label><label>方向<select id="printOrientation"><option value="landscape">横向</option><option value="portrait">纵向</option></select></label><label>比例<select id="printScale">${printScales.map(n=>`<option value="${n}">1 : ${n}</option>`).join('')}</select></label><label class="print-furniture"><input id="printFurniture" type="checkbox"> 包含家具</label></div><div id="printFit" role="status"></div><div id="printPreview" class="print-preview"></div><p class="delivery-note">打印设为「实际大小 / 100%」，关闭页眉页脚。图框含 50 mm 实体长度的比例尺，请核对实际输出。浏览器、PDF 阅读器或打印驱动的缩放会改变比例。</p><div class="delivery-actions"><button id="downloadSheet">下载图框 SVG</button><button id="openPrint" class="primary">打开打印 / PDF ↗</button></div>`);
+  $('#modal').classList.add('wide-modal');
+  $('#printPaper').value=printOptions.paper;$('#printOrientation').value=printOptions.orientation;$('#printScale').value=String(printOptions.scale);$('#printFurniture').checked=printOptions.furniture;
+  const update=()=>{const l=printLayout(api.project(),printOptions);$('#printFit').className=l.fits?'print-fit':'print-fit overflow';$('#printFit').textContent=l.fits?`${l.paper} · ${l.width} × ${l.height} mm · 1:${l.scale} · 完整图纸可容纳`:'当前设置放不下完整图纸。请选择更大的比例分母（例如 1:200），或 A3 横向。';$('#downloadSheet').disabled=$('#openPrint').disabled=!l.fits;$('#printPreview').innerHTML=l.fits?printSheetSVG(api.project(),printOptions):'<div class="print-overflow"><b>避免裁切，先调整纸张或比例</b><p>不会自动缩小图纸，标注比例与几何比例保持一致。</p></div>';};
+  for(const[id,key]of[['printPaper','paper'],['printOrientation','orientation'],['printScale','scale'],['printFurniture','furniture']])$('#'+id).onchange=e=>{printOptions[key]=key==='furniture'?e.target.checked:key==='scale'?Number(e.target.value):e.target.value;update();};
+  $('#downloadSheet').onclick=()=>api.download(printSheetSVG(api.project(),printOptions),api.name()+'_'+printOptions.paper+'_1-'+printOptions.scale+'.svg','image/svg+xml');
+  $('#openPrint').onclick=()=>{const html=printDocument(api.project(),printOptions),popup=window.open('','_blank');if(!popup){api.toast('请允许弹出窗口后重试');return;}popup.document.write(html);popup.document.close();};update();
+ }
+ function exports(){
+  const c=drawingChecks(api.project());api.modal('导出你的空间',`<p class="delivery-intro">从编辑方案，到一份可以带走的图纸。</p><button class="export-check-status" id="exportCheck">${c.errors||c.warnings?`${c.errors} 项需修正 · ${c.warnings} 项需确认`:'查看图纸检查与说明'}<span>检查与定位 →</span></button><div class="export-options"><button class="export-option" id="exportDxf"><b>DXF 尺寸图 ↗</b><small>毫米单位 · 墙体 / 门窗分层<br>实际几何与轴线尺寸标注</small></button><button class="export-option" id="exportPrint"><b>按比例打印 / PDF ↗</b><small>A4 / A3 · 横向 / 纵向<br>固定比例、图框和比例尺</small></button><button class="export-option" id="exportSvg"><b>SVG 矢量图 ↗</b><small>适合排版的平面图<br>可继续在矢量软件中编辑</small></button><button class="export-option" id="exportJson"><b>JSON 完整项目 ↗</b><small>保留尺寸、材质、家具与底图<br>跨设备继续编辑</small></button></div><button id="exportBudget" class="subtle-btn">装修用量与预算清单 →</button><p class="delivery-note">标注和面积按墙体轴线计算。几何检查为辅助提示，未确认项仍允许导出草案；请复核现场尺寸。当前不是完整施工图。</p>${api.hasScene()?'<button id="export3d" class="subtle-btn">导出当前三维视角 PNG</button>':''}`);
+  $('#exportBudget').onclick=()=>api.budget?.();$('#exportCheck').onclick=checks;$('#exportDxf').onclick=()=>{api.download(dxfString(api.project()),api.name()+'.dxf','application/dxf');api.toast('DXF 已导出，单位为毫米');};$('#exportSvg').onclick=()=>api.download(svgString(api.project()),api.name()+'.svg','image/svg+xml');$('#exportPrint').onclick=print;$('#exportJson').onclick=api.save;if($('#export3d'))$('#export3d').onclick=api.capture;
+ }
+ return{checks,print,exports};
+}

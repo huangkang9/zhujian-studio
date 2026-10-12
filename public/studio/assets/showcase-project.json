@@ -1,0 +1,1200 @@
+{
+  "version": 1,
+  "id": "showcase-qingchuan-v12",
+  "name": "晴川雅居 · 原创示例",
+  "unit": "mm",
+  "nodes": [
+    {
+      "id": "n0",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "n1",
+      "x": 4000,
+      "y": 0
+    },
+    {
+      "id": "n2",
+      "x": 7800,
+      "y": 0
+    },
+    {
+      "id": "n3",
+      "x": 10000,
+      "y": 0
+    },
+    {
+      "id": "n4",
+      "x": 12000,
+      "y": 0
+    },
+    {
+      "id": "n5",
+      "x": 12000,
+      "y": 4000
+    },
+    {
+      "id": "n6",
+      "x": 12000,
+      "y": 5400
+    },
+    {
+      "id": "n7",
+      "x": 12000,
+      "y": 8200
+    },
+    {
+      "id": "n8",
+      "x": 12000,
+      "y": 10800
+    },
+    {
+      "id": "n9",
+      "x": 8000,
+      "y": 10800
+    },
+    {
+      "id": "n10",
+      "x": 0,
+      "y": 10800
+    },
+    {
+      "id": "n11",
+      "x": 0,
+      "y": 5400
+    },
+    {
+      "id": "n12",
+      "x": 0,
+      "y": 4000
+    },
+    {
+      "id": "n13",
+      "x": 4000,
+      "y": 4000
+    },
+    {
+      "id": "n14",
+      "x": 7800,
+      "y": 4000
+    },
+    {
+      "id": "n15",
+      "x": 10000,
+      "y": 4000
+    },
+    {
+      "id": "n16",
+      "x": 8000,
+      "y": 5400
+    },
+    {
+      "id": "n17",
+      "x": 8000,
+      "y": 8200
+    }
+  ],
+  "walls": [
+    {
+      "id": "w0",
+      "a": "n0",
+      "b": "n1",
+      "thickness": 200,
+      "height": 2800,
+      "structure": "unknown"
+    },
+    {
+      "id": "w1",
+      "a": "n1",
+      "b": "n2",
+      "thickness": 200,
+      "height": 2800,
+      "structure": "unknown"
+    },
+    {
+      "id": "w2",
+      "a": "n2",
+      "b": "n3",
+      "thickness": 200,
+      "height": 2800,
+      "structure": "unknown"
+    },
+    {
+      "id": "w3",
+      "a": "n3",
+      "b": "n4",
+      "thickness": 200,
+      "height": 2800,
+      "structure": "unknown"
+    },
+    {
+      "id": "w4",
+      "a": "n4",
+      "b": "n5",
+      "thickness": 200,
+      "height": 2800,
+      "structure": "unknown"
+    },
+    {
+      "id": "w5",
+      "a": "n5",
+      "b": "n6",
+      "thickness": 200,
+      "height": 2800,
+      "structure": "unknown"
+    },
+    {
+      "id": "w6",
+      "a": "n6",
+      "b": "n7",
+      "thickness": 200,
+      "height": 2800,
+      "structure": "unknown"
+    },
+    {
+      "id": "w7",
+      "a": "n7",
+      "b": "n8",
+      "thickness": 200,
+      "height": 2800,
+      "structure": "unknown"
+    },
+    {
+      "id": "w8",
+      "a": "n8",
+      "b": "n9",
+      "thickness": 200,
+      "height": 2800,
+      "structure": "unknown"
+    },
+    {
+      "id": "w9",
+      "a": "n9",
+      "b": "n10",
+      "thickness": 200,
+      "height": 2800,
+      "structure": "unknown"
+    },
+    {
+      "id": "w10",
+      "a": "n10",
+      "b": "n11",
+      "thickness": 200,
+      "height": 2800,
+      "structure": "unknown"
+    },
+    {
+      "id": "w11",
+      "a": "n11",
+      "b": "n12",
+      "thickness": 200,
+      "height": 2800,
+      "structure": "unknown"
+    },
+    {
+      "id": "w12",
+      "a": "n12",
+      "b": "n0",
+      "thickness": 200,
+      "height": 2800,
+      "structure": "unknown"
+    },
+    {
+      "id": "w13",
+      "a": "n1",
+      "b": "n13",
+      "thickness": 200,
+      "height": 2800,
+      "structure": "unknown"
+    },
+    {
+      "id": "w14",
+      "a": "n2",
+      "b": "n14",
+      "thickness": 200,
+      "height": 2800,
+      "structure": "unknown"
+    },
+    {
+      "id": "w15",
+      "a": "n3",
+      "b": "n15",
+      "thickness": 200,
+      "height": 2800,
+      "structure": "unknown"
+    },
+    {
+      "id": "w16",
+      "a": "n12",
+      "b": "n13",
+      "thickness": 200,
+      "height": 2800,
+      "structure": "unknown"
+    },
+    {
+      "id": "w17",
+      "a": "n13",
+      "b": "n14",
+      "thickness": 200,
+      "height": 2800,
+      "structure": "unknown"
+    },
+    {
+      "id": "w18",
+      "a": "n14",
+      "b": "n15",
+      "thickness": 200,
+      "height": 2800,
+      "structure": "unknown"
+    },
+    {
+      "id": "w19",
+      "a": "n15",
+      "b": "n5",
+      "thickness": 200,
+      "height": 2800,
+      "structure": "unknown"
+    },
+    {
+      "id": "w20",
+      "a": "n11",
+      "b": "n16",
+      "thickness": 200,
+      "height": 2800,
+      "structure": "unknown"
+    },
+    {
+      "id": "w21",
+      "a": "n16",
+      "b": "n6",
+      "thickness": 200,
+      "height": 2800,
+      "structure": "unknown"
+    },
+    {
+      "id": "w22",
+      "a": "n16",
+      "b": "n17",
+      "thickness": 200,
+      "height": 2800,
+      "structure": "unknown"
+    },
+    {
+      "id": "w23",
+      "a": "n17",
+      "b": "n9",
+      "thickness": 200,
+      "height": 2800,
+      "structure": "unknown"
+    },
+    {
+      "id": "w24",
+      "a": "n17",
+      "b": "n7",
+      "thickness": 200,
+      "height": 2800,
+      "structure": "unknown"
+    }
+  ],
+  "openings": [
+    {
+      "id": "o1",
+      "wall": "w0",
+      "type": "window",
+      "offset": 1400,
+      "width": 1800,
+      "height": 1500,
+      "sill": 900,
+      "panes": 2,
+      "frameColor": "#59665f"
+    },
+    {
+      "id": "o2",
+      "wall": "w1",
+      "type": "window",
+      "offset": 1200,
+      "width": 1800,
+      "height": 1500,
+      "sill": 900,
+      "panes": 2,
+      "frameColor": "#59665f"
+    },
+    {
+      "id": "o3",
+      "wall": "w2",
+      "type": "window",
+      "offset": 350,
+      "width": 1500,
+      "height": 1500,
+      "sill": 900,
+      "panes": 2,
+      "frameColor": "#59665f"
+    },
+    {
+      "id": "o4",
+      "wall": "w4",
+      "type": "window",
+      "offset": 1000,
+      "width": 1200,
+      "height": 900,
+      "sill": 1400,
+      "panes": 2,
+      "frameColor": "#59665f"
+    },
+    {
+      "id": "o5",
+      "wall": "w6",
+      "type": "window",
+      "offset": 800,
+      "width": 1500,
+      "height": 1200,
+      "sill": 1100,
+      "panes": 2,
+      "frameColor": "#59665f"
+    },
+    {
+      "id": "o6",
+      "wall": "w7",
+      "type": "window",
+      "offset": 800,
+      "width": 1300,
+      "height": 900,
+      "sill": 1400,
+      "panes": 2,
+      "frameColor": "#59665f"
+    },
+    {
+      "id": "o7",
+      "wall": "w9",
+      "type": "window",
+      "offset": 2100,
+      "width": 4000,
+      "height": 2000,
+      "sill": 500,
+      "panes": 4,
+      "frameColor": "#59665f"
+    },
+    {
+      "id": "o8",
+      "wall": "w10",
+      "type": "window",
+      "offset": 1300,
+      "width": 2000,
+      "height": 1800,
+      "sill": 600,
+      "panes": 2,
+      "frameColor": "#59665f"
+    },
+    {
+      "id": "entry",
+      "wall": "w11",
+      "type": "door",
+      "offset": 200,
+      "width": 1000,
+      "height": 2200,
+      "sill": 0,
+      "openAngle": 90,
+      "flip": false,
+      "frameColor": "#b4a28c",
+      "leafColor": "#e2d8c7"
+    },
+    {
+      "id": "main",
+      "wall": "w16",
+      "type": "door",
+      "offset": 2700,
+      "width": 900,
+      "height": 2200,
+      "sill": 0,
+      "openAngle": 90,
+      "flip": true,
+      "frameColor": "#b4a28c",
+      "leafColor": "#e2d8c7"
+    },
+    {
+      "id": "second",
+      "wall": "w17",
+      "type": "door",
+      "offset": 2600,
+      "width": 900,
+      "height": 2200,
+      "sill": 0,
+      "openAngle": 90,
+      "flip": true,
+      "frameColor": "#b4a28c",
+      "leafColor": "#e2d8c7"
+    },
+    {
+      "id": "study",
+      "wall": "w18",
+      "type": "door",
+      "offset": 300,
+      "width": 850,
+      "height": 2200,
+      "sill": 0,
+      "openAngle": 90,
+      "flip": true,
+      "frameColor": "#b4a28c",
+      "leafColor": "#e2d8c7"
+    },
+    {
+      "id": "bath",
+      "wall": "w19",
+      "type": "door",
+      "offset": 350,
+      "width": 800,
+      "height": 2200,
+      "sill": 0,
+      "openAngle": 90,
+      "flip": true,
+      "frameColor": "#b4a28c",
+      "leafColor": "#e2d8c7"
+    },
+    {
+      "id": "living",
+      "wall": "w20",
+      "type": "door",
+      "offset": 1100,
+      "width": 1200,
+      "height": 2200,
+      "sill": 0,
+      "openAngle": 90,
+      "flip": false,
+      "frameColor": "#b4a28c",
+      "leafColor": "#e2d8c7"
+    },
+    {
+      "id": "kitchen",
+      "wall": "w21",
+      "type": "door",
+      "offset": 800,
+      "width": 1100,
+      "height": 2200,
+      "sill": 0,
+      "openAngle": 90,
+      "flip": false,
+      "frameColor": "#b4a28c",
+      "leafColor": "#e2d8c7"
+    },
+    {
+      "id": "utility",
+      "wall": "w23",
+      "type": "door",
+      "offset": 350,
+      "width": 900,
+      "height": 2200,
+      "sill": 0,
+      "openAngle": 90,
+      "flip": false,
+      "frameColor": "#b4a28c",
+      "leafColor": "#e2d8c7"
+    }
+  ],
+  "furniture": [
+    {
+      "id": "f0",
+      "type": "bed",
+      "name": "双人床",
+      "category": "卧室",
+      "shape": "bed",
+      "w": 1800,
+      "d": 2100,
+      "h": 1000,
+      "color": "#d6c7ad",
+      "material": "fabric",
+      "x": 2300,
+      "y": 1600,
+      "rotation": 0
+    },
+    {
+      "id": "f1",
+      "type": "nightstand",
+      "name": "床头柜",
+      "category": "卧室",
+      "shape": "drawers",
+      "w": 500,
+      "d": 420,
+      "h": 520,
+      "color": "#b89b78",
+      "material": "wood",
+      "x": 1050,
+      "y": 820,
+      "rotation": 0
+    },
+    {
+      "id": "f2",
+      "type": "nightstand",
+      "name": "床头柜",
+      "category": "卧室",
+      "shape": "drawers",
+      "w": 500,
+      "d": 420,
+      "h": 520,
+      "color": "#b89b78",
+      "material": "wood",
+      "x": 3450,
+      "y": 820,
+      "rotation": 0
+    },
+    {
+      "id": "f3",
+      "type": "cabinet",
+      "name": "衣柜",
+      "category": "收纳",
+      "shape": "cabinet",
+      "w": 2200,
+      "d": 600,
+      "h": 2300,
+      "color": "#cbbfa9",
+      "material": "lacquer",
+      "x": 450,
+      "y": 1900,
+      "rotation": 90
+    },
+    {
+      "id": "f4",
+      "type": "singleBed",
+      "name": "单人床",
+      "category": "卧室",
+      "shape": "bed",
+      "w": 1500,
+      "d": 2000,
+      "h": 950,
+      "color": "#bdc4b3",
+      "material": "fabric",
+      "x": 6200,
+      "y": 1600,
+      "rotation": 0
+    },
+    {
+      "id": "f5",
+      "type": "nightstand",
+      "name": "床头柜",
+      "category": "卧室",
+      "shape": "drawers",
+      "w": 500,
+      "d": 420,
+      "h": 520,
+      "color": "#b89b78",
+      "material": "wood",
+      "x": 7250,
+      "y": 850,
+      "rotation": 0
+    },
+    {
+      "id": "f6",
+      "type": "cabinet",
+      "name": "衣柜",
+      "category": "收纳",
+      "shape": "cabinet",
+      "w": 1800,
+      "d": 600,
+      "h": 2300,
+      "color": "#cbbfa9",
+      "material": "lacquer",
+      "x": 4450,
+      "y": 1700,
+      "rotation": 90
+    },
+    {
+      "id": "f7",
+      "type": "plant",
+      "name": "落地绿植",
+      "category": "软装",
+      "shape": "plant",
+      "w": 450,
+      "d": 450,
+      "h": 1100,
+      "color": "#829b76",
+      "material": "lacquer",
+      "x": 7300,
+      "y": 2900,
+      "rotation": 0
+    },
+    {
+      "id": "f8",
+      "type": "desk",
+      "name": "书桌",
+      "category": "书房",
+      "shape": "desk",
+      "w": 1600,
+      "d": 650,
+      "h": 750,
+      "color": "#c3a17b",
+      "material": "wood",
+      "x": 8900,
+      "y": 700,
+      "rotation": 0
+    },
+    {
+      "id": "f9",
+      "type": "officeChair",
+      "name": "办公椅",
+      "category": "书房",
+      "shape": "officechair",
+      "w": 650,
+      "d": 650,
+      "h": 1100,
+      "color": "#555e57",
+      "material": "fabric",
+      "x": 8900,
+      "y": 1450,
+      "rotation": 0
+    },
+    {
+      "id": "f10",
+      "type": "bookcase",
+      "name": "开放书架",
+      "category": "书房",
+      "shape": "bookcase",
+      "w": 1600,
+      "d": 350,
+      "h": 2000,
+      "color": "#c3ab8c",
+      "material": "wood",
+      "x": 9600,
+      "y": 2800,
+      "rotation": 90
+    },
+    {
+      "id": "f11",
+      "type": "shower",
+      "name": "淋浴隔断",
+      "category": "卫浴",
+      "shape": "shower",
+      "w": 800,
+      "d": 800,
+      "h": 2100,
+      "color": "#82948e",
+      "material": "metal",
+      "x": 10550,
+      "y": 600,
+      "rotation": 0
+    },
+    {
+      "id": "f12",
+      "type": "toilet",
+      "name": "马桶",
+      "category": "卫浴",
+      "shape": "toilet",
+      "w": 400,
+      "d": 700,
+      "h": 780,
+      "color": "#f0efdf",
+      "material": "lacquer",
+      "x": 11500,
+      "y": 2300,
+      "rotation": 90
+    },
+    {
+      "id": "f13",
+      "type": "vanity",
+      "name": "浴室洗手台",
+      "category": "卫浴",
+      "shape": "vanity",
+      "w": 1000,
+      "d": 500,
+      "h": 850,
+      "color": "#b1baa9",
+      "material": "lacquer",
+      "x": 10400,
+      "y": 2000,
+      "rotation": 90
+    },
+    {
+      "id": "f14",
+      "type": "shoeCabinet",
+      "name": "玄关鞋柜",
+      "category": "收纳",
+      "shape": "cabinet",
+      "w": 1800,
+      "d": 260,
+      "h": 1100,
+      "color": "#cab49a",
+      "material": "wood",
+      "x": 3900,
+      "y": 5150,
+      "rotation": 0
+    },
+    {
+      "id": "f15",
+      "type": "rug",
+      "name": "地毯",
+      "category": "软装",
+      "shape": "rug",
+      "w": 3400,
+      "d": 3000,
+      "h": 15,
+      "color": "#d6c7ab",
+      "material": "fabric",
+      "x": 2600,
+      "y": 8350,
+      "rotation": 0
+    },
+    {
+      "id": "f16",
+      "type": "sofa",
+      "name": "三人沙发",
+      "category": "客厅",
+      "shape": "sofa",
+      "w": 2800,
+      "d": 900,
+      "h": 820,
+      "color": "#a6b49f",
+      "material": "fabric",
+      "x": 2450,
+      "y": 7150,
+      "rotation": 0,
+      "surface": {
+        "style": "woven",
+        "scale": 600,
+        "rotation": 0,
+        "groutWidth": 3,
+        "groutColor": "#dedcd1"
+      }
+    },
+    {
+      "id": "f17",
+      "type": "coffee",
+      "name": "长方茶几",
+      "category": "客厅",
+      "shape": "coffee",
+      "w": 1200,
+      "d": 650,
+      "h": 420,
+      "color": "#b9956e",
+      "material": "wood",
+      "x": 2500,
+      "y": 8350,
+      "rotation": 0
+    },
+    {
+      "id": "f18",
+      "type": "armchair",
+      "name": "休闲单椅",
+      "category": "客厅",
+      "shape": "armchair",
+      "w": 800,
+      "d": 820,
+      "h": 860,
+      "color": "#b88969",
+      "material": "leather",
+      "x": 4600,
+      "y": 8950,
+      "rotation": 90
+    },
+    {
+      "id": "f19",
+      "type": "tvstand",
+      "name": "电视柜",
+      "category": "客厅",
+      "shape": "lowcabinet",
+      "w": 2400,
+      "d": 420,
+      "h": 520,
+      "color": "#a98967",
+      "material": "wood",
+      "x": 2500,
+      "y": 10420,
+      "rotation": 0
+    },
+    {
+      "id": "f20",
+      "type": "television",
+      "name": "平板电视",
+      "category": "客厅",
+      "shape": "television",
+      "w": 1450,
+      "d": 260,
+      "h": 900,
+      "color": "#303b3b",
+      "material": "metal",
+      "x": 2500,
+      "y": 10380,
+      "rotation": 0,
+      "elevation": 520
+    },
+    {
+      "id": "f21",
+      "type": "plant",
+      "name": "落地绿植",
+      "category": "软装",
+      "shape": "plant",
+      "w": 450,
+      "d": 450,
+      "h": 1100,
+      "color": "#829b76",
+      "material": "lacquer",
+      "x": 650,
+      "y": 10150,
+      "rotation": 0
+    },
+    {
+      "id": "f22",
+      "type": "floorLamp",
+      "name": "落地灯",
+      "category": "灯饰",
+      "shape": "floorlamp",
+      "w": 420,
+      "d": 420,
+      "h": 1600,
+      "color": "#d4c7ad",
+      "material": "fabric",
+      "x": 4400,
+      "y": 6750,
+      "rotation": 0
+    },
+    {
+      "id": "f23",
+      "type": "table",
+      "name": "餐桌",
+      "category": "餐厅",
+      "shape": "table",
+      "w": 1800,
+      "d": 900,
+      "h": 750,
+      "color": "#bd9c74",
+      "material": "wood",
+      "x": 6350,
+      "y": 7350,
+      "rotation": 0
+    },
+    {
+      "id": "f24",
+      "type": "chair",
+      "name": "餐椅",
+      "category": "餐厅",
+      "shape": "chair",
+      "w": 460,
+      "d": 500,
+      "h": 820,
+      "color": "#8d9c8c",
+      "material": "wood",
+      "x": 5850,
+      "y": 6500,
+      "rotation": 0
+    },
+    {
+      "id": "f25",
+      "type": "chair",
+      "name": "餐椅",
+      "category": "餐厅",
+      "shape": "chair",
+      "w": 460,
+      "d": 500,
+      "h": 820,
+      "color": "#8d9c8c",
+      "material": "wood",
+      "x": 5850,
+      "y": 8200,
+      "rotation": 180
+    },
+    {
+      "id": "f26",
+      "type": "chair",
+      "name": "餐椅",
+      "category": "餐厅",
+      "shape": "chair",
+      "w": 460,
+      "d": 500,
+      "h": 820,
+      "color": "#8d9c8c",
+      "material": "wood",
+      "x": 6750,
+      "y": 6500,
+      "rotation": 0
+    },
+    {
+      "id": "f27",
+      "type": "chair",
+      "name": "餐椅",
+      "category": "餐厅",
+      "shape": "chair",
+      "w": 460,
+      "d": 500,
+      "h": 820,
+      "color": "#8d9c8c",
+      "material": "wood",
+      "x": 6750,
+      "y": 8200,
+      "rotation": 180
+    },
+    {
+      "id": "f28",
+      "type": "sideboard",
+      "name": "餐边柜",
+      "category": "餐厅",
+      "shape": "drawers",
+      "w": 1800,
+      "d": 450,
+      "h": 900,
+      "color": "#b9a084",
+      "material": "wood",
+      "x": 7530,
+      "y": 6900,
+      "rotation": 90
+    },
+    {
+      "id": "f29",
+      "type": "pendant",
+      "name": "吊灯",
+      "category": "灯饰",
+      "shape": "pendant",
+      "w": 600,
+      "d": 600,
+      "h": 650,
+      "color": "#e0cfab",
+      "material": "fabric",
+      "elevation": 2050,
+      "x": 6350,
+      "y": 7350,
+      "rotation": 0
+    },
+    {
+      "id": "f30",
+      "type": "kitchen",
+      "name": "水槽灶台地柜",
+      "category": "厨房",
+      "shape": "kitchen",
+      "w": 2300,
+      "d": 600,
+      "h": 850,
+      "color": "#c6ccc0",
+      "material": "lacquer",
+      "x": 11550,
+      "y": 6900,
+      "rotation": 90
+    },
+    {
+      "id": "f31",
+      "type": "fridge",
+      "name": "双门冰箱",
+      "category": "厨房",
+      "shape": "fridge",
+      "w": 800,
+      "d": 720,
+      "h": 1800,
+      "color": "#bcc4c1",
+      "material": "metal",
+      "x": 10400,
+      "y": 5950,
+      "rotation": 0
+    },
+    {
+      "id": "f32",
+      "type": "counter",
+      "name": "独立地柜台面",
+      "category": "厨房",
+      "shape": "counter",
+      "w": 2100,
+      "d": 600,
+      "h": 850,
+      "color": "#c9c8bc",
+      "material": "lacquer",
+      "x": 9300,
+      "y": 7780,
+      "rotation": 0
+    },
+    {
+      "id": "f33",
+      "type": "microwave",
+      "name": "微波炉",
+      "category": "家电",
+      "shape": "microwave",
+      "w": 520,
+      "d": 420,
+      "h": 310,
+      "color": "#b9c2bc",
+      "material": "metal",
+      "elevation": 880,
+      "x": 9750,
+      "y": 7780,
+      "rotation": 0
+    },
+    {
+      "id": "f34",
+      "type": "plant",
+      "name": "落地绿植",
+      "category": "软装",
+      "shape": "plant",
+      "w": 450,
+      "d": 450,
+      "h": 1100,
+      "color": "#829b76",
+      "material": "lacquer",
+      "x": 8500,
+      "y": 6000,
+      "rotation": 0
+    },
+    {
+      "id": "f35",
+      "type": "tub",
+      "name": "浴缸",
+      "category": "卫浴",
+      "shape": "tub",
+      "w": 1700,
+      "d": 750,
+      "h": 600,
+      "color": "#e8e8dd",
+      "material": "stone",
+      "x": 10750,
+      "y": 10150,
+      "rotation": 0
+    },
+    {
+      "id": "f36",
+      "type": "toilet",
+      "name": "马桶",
+      "category": "卫浴",
+      "shape": "toilet",
+      "w": 400,
+      "d": 700,
+      "h": 780,
+      "color": "#f0efdf",
+      "material": "lacquer",
+      "x": 11500,
+      "y": 8850,
+      "rotation": 90
+    },
+    {
+      "id": "f37",
+      "type": "doubleVanity",
+      "name": "双盆浴室柜",
+      "category": "卫浴",
+      "shape": "doublevanity",
+      "w": 1700,
+      "d": 550,
+      "h": 850,
+      "color": "#b7bda9",
+      "material": "lacquer",
+      "x": 9400,
+      "y": 8600,
+      "rotation": 0
+    },
+    {
+      "id": "f38",
+      "type": "washer",
+      "name": "滚筒洗衣机",
+      "category": "卫浴",
+      "shape": "washer",
+      "w": 600,
+      "d": 620,
+      "h": 850,
+      "color": "#dddeda",
+      "material": "lacquer",
+      "x": 8650,
+      "y": 10250,
+      "rotation": 0
+    }
+  ],
+  "roomMeta": {
+    "n0|n1|n12|n13": {
+      "name": "主卧",
+      "color": "#dfceb0",
+      "floorStyle": "wood",
+      "surface": {
+        "style": "wood",
+        "scale": 600,
+        "rotation": 0,
+        "groutColor": "#ddd8ce",
+        "groutWidth": 3
+      }
+    },
+    "n1|n13|n14|n2": {
+      "name": "次卧",
+      "color": "#dfceb0",
+      "floorStyle": "wood",
+      "surface": {
+        "style": "wood",
+        "scale": 600,
+        "rotation": 0,
+        "groutColor": "#ddd8ce",
+        "groutWidth": 3
+      }
+    },
+    "n14|n15|n2|n3": {
+      "name": "书房",
+      "color": "#dfceb0",
+      "floorStyle": "wood",
+      "surface": {
+        "style": "wood",
+        "scale": 600,
+        "rotation": 0,
+        "groutColor": "#ddd8ce",
+        "groutWidth": 3
+      }
+    },
+    "n15|n3|n4|n5": {
+      "name": "客卫",
+      "color": "#d8e1d9",
+      "floorStyle": "tile",
+      "surface": {
+        "style": "tiles",
+        "scale": 600,
+        "rotation": 0,
+        "groutColor": "#ddd8ce",
+        "groutWidth": 3
+      }
+    },
+    "n11|n12|n13|n14|n15|n16|n5|n6": {
+      "name": "玄关走廊",
+      "color": "#dfd8ca",
+      "floorStyle": "tile",
+      "surface": {
+        "style": "tiles",
+        "scale": 600,
+        "rotation": 0,
+        "groutColor": "#ddd8ce",
+        "groutWidth": 3
+      }
+    },
+    "n16|n17|n6|n7": {
+      "name": "厨房",
+      "color": "#d9dfd0",
+      "floorStyle": "tile",
+      "surface": {
+        "style": "tiles",
+        "scale": 600,
+        "rotation": 0,
+        "groutColor": "#ddd8ce",
+        "groutWidth": 3
+      }
+    },
+    "n17|n7|n8|n9": {
+      "name": "洗浴洗衣",
+      "color": "#d9e1db",
+      "floorStyle": "tile",
+      "surface": {
+        "style": "tiles",
+        "scale": 600,
+        "rotation": 0,
+        "groutColor": "#ddd8ce",
+        "groutWidth": 3
+      }
+    },
+    "n10|n11|n16|n17|n9": {
+      "name": "客餐厅",
+      "color": "#dac7a6",
+      "floorStyle": "wood",
+      "surface": {
+        "style": "parquet",
+        "scale": 600,
+        "rotation": 0,
+        "groutColor": "#ddd8ce",
+        "groutWidth": 3
+      }
+    }
+  },
+  "defaults": {
+    "thickness": 200,
+    "height": 2800,
+    "wallColor": "#eeeade",
+    "floorColor": "#ded5bd",
+    "floorStyle": "wood"
+  },
+  "background": null,
+  "notes": "原创展示户型：两卧、书房、双卫与独立厨房。129.6 m² 为墙体轴线围合面积；仅用于软件演示，不是实测或施工图。",
+  "example": true,
+  "demoVersion": 12
+}

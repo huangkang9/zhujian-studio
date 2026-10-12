@@ -1,0 +1,15 @@
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import {parseHTML} from 'linkedom';
+import * as THREE from '../public/studio/vendor/three.module.js';import {emptyProject,addRectangle,findRooms} from '../public/studio/model.js';import {WalkController} from '../public/studio/walk.js';import {installImmersive} from '../public/studio/immersive-ui.js';
+test('non-WebGL immersive HUD enters, changes room/light/FOV/height, handles keys and restores editor',async()=>{
+ const{window,document}=parseHTML(fs.readFileSync(new URL('../public/studio/index.html',import.meta.url),'utf8'));Object.assign(globalThis,{window,document});
+ // linkedom has no select setter; a small DOM shim supplies that browser property.
+ Object.defineProperty(window.HTMLSelectElement.prototype,'value',{get(){return this._value??this.querySelector('option[selected]')?.value??this.querySelector('option')?.value??'';},set(v){this._value=String(v);},configurable:true});
+ const $=s=>document.querySelector(s),p=emptyProject();addRectangle(p,{x:0,y:0,width:6000,depth:4000});const r=findRooms(p)[0];p.roomMeta[r.key]={name:'起居室'};p.openings=[{id:'door',wall:p.walls[0].id,type:'door',offset:2500,width:1000,height:2100,sill:0,openAngle:0}];
+ const canvas=document.createElement('canvas');$('#threeCanvas').appendChild(canvas);canvas.setPointerCapture=()=>{};canvas.hasPointerCapture=()=>false;
+ const scene={project:p,rooms:findRooms(p),renderer:{domElement:canvas},camera:new THREE.PerspectiveCamera(38,1,.05,100),controls:{target:new THREE.Vector3(3,0,2),enabled:true,update(){}},callbacks:{},resize(){}};scene.camera.position.set(9,8,9);scene.walk=new WalkController(scene);
+ let light='day',captures=0,syncs=0;const hud=installImmersive({project:()=>p,scene:()=>scene,selected:()=>null,view:async()=>{},toast:()=>{},sync:()=>syncs++,mutate:fn=>fn(),capture:()=>captures++,light:()=>light,setLight:m=>light=m});
+ await hud.enter();assert.equal(hud.active,true);assert.equal($('#walkHUD').hidden,false);assert.equal(scene.walk.active,true);assert.equal($('#walkRoomName').textContent,'起居室');assert.ok($('.header').hasAttribute('inert'));assert.ok($('#walkMarker').getAttribute('transform').includes('translate'));
+ $('#walkLight').onchange({target:{value:'night'}});assert.equal(light,'night');$('#walkFov').oninput({target:{value:'75'}});assert.equal(scene.camera.fov,75);$('#walkHeight').onchange({target:{value:'1200'}});assert.equal(scene.camera.position.y,1.2);$('#walkCapture').onclick();assert.equal(captures,1);scene.camera.position.set(3,1.2,1);$('#walkDoor').onclick();assert.equal(p.openings[0].openAngle,90);$('#walkDoor').onclick();assert.equal(p.openings[0].openAngle,0);
+ function key(type,k){const e=new window.Event(type,{bubbles:true});Object.assign(e,{key:k});document.dispatchEvent(e);}
+ key('keydown','w');assert.ok(scene.walk.keys.has('w'));key('keyup','w');assert.equal(scene.walk.keys.size,0);key('keydown','Escape');assert.equal(hud.active,false);assert.equal(scene.camera.fov,38);assert.equal($('#walkHUD').hidden,true);assert.equal($('.header').hasAttribute('inert'),false);assert.equal(syncs,2);
+});

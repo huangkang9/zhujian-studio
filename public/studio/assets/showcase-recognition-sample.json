@@ -1,0 +1,580 @@
+{
+  "schemaVersion": 1,
+  "title": "晴川雅居 · 尺寸审查教学",
+  "source": "原创程序化教学数据；非 AI 识别结果，未调用 API",
+  "nodes": [
+    {
+      "id": "n0",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "n1",
+      "x": 4000,
+      "y": 0
+    },
+    {
+      "id": "n2",
+      "x": 7800,
+      "y": 0
+    },
+    {
+      "id": "n3",
+      "x": 10000,
+      "y": 0
+    },
+    {
+      "id": "n4",
+      "x": 12000,
+      "y": 0
+    },
+    {
+      "id": "n5",
+      "x": 12000,
+      "y": 4000
+    },
+    {
+      "id": "n6",
+      "x": 12000,
+      "y": 5400
+    },
+    {
+      "id": "n7",
+      "x": 12000,
+      "y": 8200
+    },
+    {
+      "id": "n8",
+      "x": 12000,
+      "y": 10800
+    },
+    {
+      "id": "n9",
+      "x": 8000,
+      "y": 10800
+    },
+    {
+      "id": "n10",
+      "x": 0,
+      "y": 10800
+    },
+    {
+      "id": "n11",
+      "x": 0,
+      "y": 5400
+    },
+    {
+      "id": "n12",
+      "x": 0,
+      "y": 4000
+    },
+    {
+      "id": "n13",
+      "x": 4000,
+      "y": 4000
+    },
+    {
+      "id": "n14",
+      "x": 7800,
+      "y": 4000
+    },
+    {
+      "id": "n15",
+      "x": 10000,
+      "y": 4000
+    },
+    {
+      "id": "n16",
+      "x": 8000,
+      "y": 5400
+    },
+    {
+      "id": "n17",
+      "x": 8000,
+      "y": 8200
+    }
+  ],
+  "walls": [
+    {
+      "id": "w0",
+      "a": "n0",
+      "b": "n1",
+      "alignment": "horizontal"
+    },
+    {
+      "id": "w1",
+      "a": "n1",
+      "b": "n2",
+      "alignment": "horizontal"
+    },
+    {
+      "id": "w2",
+      "a": "n2",
+      "b": "n3",
+      "alignment": "horizontal"
+    },
+    {
+      "id": "w3",
+      "a": "n3",
+      "b": "n4",
+      "alignment": "horizontal"
+    },
+    {
+      "id": "w4",
+      "a": "n4",
+      "b": "n5",
+      "alignment": "vertical"
+    },
+    {
+      "id": "w5",
+      "a": "n5",
+      "b": "n6",
+      "alignment": "vertical"
+    },
+    {
+      "id": "w6",
+      "a": "n6",
+      "b": "n7",
+      "alignment": "vertical"
+    },
+    {
+      "id": "w7",
+      "a": "n7",
+      "b": "n8",
+      "alignment": "vertical"
+    },
+    {
+      "id": "w8",
+      "a": "n8",
+      "b": "n9",
+      "alignment": "horizontal"
+    },
+    {
+      "id": "w9",
+      "a": "n9",
+      "b": "n10",
+      "alignment": "horizontal"
+    },
+    {
+      "id": "w10",
+      "a": "n10",
+      "b": "n11",
+      "alignment": "vertical"
+    },
+    {
+      "id": "w11",
+      "a": "n11",
+      "b": "n12",
+      "alignment": "vertical"
+    },
+    {
+      "id": "w12",
+      "a": "n12",
+      "b": "n0",
+      "alignment": "vertical"
+    },
+    {
+      "id": "w13",
+      "a": "n1",
+      "b": "n13",
+      "alignment": "vertical"
+    },
+    {
+      "id": "w14",
+      "a": "n2",
+      "b": "n14",
+      "alignment": "vertical"
+    },
+    {
+      "id": "w15",
+      "a": "n3",
+      "b": "n15",
+      "alignment": "vertical"
+    },
+    {
+      "id": "w16",
+      "a": "n12",
+      "b": "n13",
+      "alignment": "horizontal"
+    },
+    {
+      "id": "w17",
+      "a": "n13",
+      "b": "n14",
+      "alignment": "horizontal"
+    },
+    {
+      "id": "w18",
+      "a": "n14",
+      "b": "n15",
+      "alignment": "horizontal"
+    },
+    {
+      "id": "w19",
+      "a": "n15",
+      "b": "n5",
+      "alignment": "horizontal"
+    },
+    {
+      "id": "w20",
+      "a": "n11",
+      "b": "n16",
+      "alignment": "horizontal"
+    },
+    {
+      "id": "w21",
+      "a": "n16",
+      "b": "n6",
+      "alignment": "horizontal"
+    },
+    {
+      "id": "w22",
+      "a": "n16",
+      "b": "n17",
+      "alignment": "vertical"
+    },
+    {
+      "id": "w23",
+      "a": "n17",
+      "b": "n9",
+      "alignment": "vertical"
+    },
+    {
+      "id": "w24",
+      "a": "n17",
+      "b": "n7",
+      "alignment": "horizontal"
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "width",
+      "from": "n0",
+      "to": "n4",
+      "axis": "x",
+      "value": 12000,
+      "unit": "mm",
+      "label": "12000 mm",
+      "certainty": "clear",
+      "enabled": true,
+      "confirmed": false
+    },
+    {
+      "id": "depth",
+      "from": "n4",
+      "to": "n8",
+      "axis": "y",
+      "value": 10800,
+      "unit": "mm",
+      "label": "10800 mm",
+      "certainty": "clear",
+      "enabled": true,
+      "confirmed": false
+    },
+    {
+      "id": "primary",
+      "from": "n0",
+      "to": "n1",
+      "axis": "x",
+      "value": 4000,
+      "unit": "mm",
+      "label": "4000 mm",
+      "certainty": "clear",
+      "enabled": true,
+      "confirmed": false
+    },
+    {
+      "id": "second",
+      "from": "n1",
+      "to": "n2",
+      "axis": "x",
+      "value": 3800,
+      "unit": "mm",
+      "label": "3800 mm",
+      "certainty": "clear",
+      "enabled": true,
+      "confirmed": false
+    },
+    {
+      "id": "study",
+      "from": "n2",
+      "to": "n3",
+      "axis": "x",
+      "value": 2200,
+      "unit": "mm",
+      "label": "2200 mm",
+      "certainty": "uncertain",
+      "enabled": true,
+      "confirmed": false
+    },
+    {
+      "id": "bath",
+      "from": "n3",
+      "to": "n4",
+      "axis": "x",
+      "value": 2000,
+      "unit": "mm",
+      "label": "2000 mm",
+      "certainty": "clear",
+      "enabled": true,
+      "confirmed": false
+    },
+    {
+      "id": "north",
+      "from": "n4",
+      "to": "n5",
+      "axis": "y",
+      "value": 4000,
+      "unit": "mm",
+      "label": "4000 mm",
+      "certainty": "clear",
+      "enabled": true,
+      "confirmed": false
+    },
+    {
+      "id": "hall",
+      "from": "n5",
+      "to": "n6",
+      "axis": "y",
+      "value": 1400,
+      "unit": "mm",
+      "label": "1400 mm",
+      "certainty": "clear",
+      "enabled": true,
+      "confirmed": false
+    },
+    {
+      "id": "kitchen",
+      "from": "n6",
+      "to": "n7",
+      "axis": "y",
+      "value": 2800,
+      "unit": "mm",
+      "label": "2800 mm",
+      "certainty": "clear",
+      "enabled": true,
+      "confirmed": false
+    },
+    {
+      "id": "living",
+      "from": "n11",
+      "to": "n16",
+      "axis": "x",
+      "value": 8000,
+      "unit": "mm",
+      "label": "8000 mm",
+      "certainty": "clear",
+      "enabled": true,
+      "confirmed": false
+    }
+  ],
+  "openings": [
+    {
+      "id": "o1",
+      "wall": "w0",
+      "type": "window",
+      "offset": 1400,
+      "width": 1800,
+      "enabled": false,
+      "certainty": "uncertain",
+      "note": "教学候选：核对后可启用"
+    },
+    {
+      "id": "o2",
+      "wall": "w1",
+      "type": "window",
+      "offset": 1200,
+      "width": 1800,
+      "enabled": false,
+      "certainty": "uncertain",
+      "note": "教学候选：核对后可启用"
+    },
+    {
+      "id": "o3",
+      "wall": "w2",
+      "type": "window",
+      "offset": 350,
+      "width": 1500,
+      "enabled": false,
+      "certainty": "uncertain",
+      "note": "教学候选：核对后可启用"
+    },
+    {
+      "id": "o4",
+      "wall": "w4",
+      "type": "window",
+      "offset": 1000,
+      "width": 1200,
+      "enabled": false,
+      "certainty": "uncertain",
+      "note": "教学候选：核对后可启用"
+    },
+    {
+      "id": "o5",
+      "wall": "w6",
+      "type": "window",
+      "offset": 800,
+      "width": 1500,
+      "enabled": false,
+      "certainty": "uncertain",
+      "note": "教学候选：核对后可启用"
+    },
+    {
+      "id": "o6",
+      "wall": "w7",
+      "type": "window",
+      "offset": 800,
+      "width": 1300,
+      "enabled": false,
+      "certainty": "uncertain",
+      "note": "教学候选：核对后可启用"
+    },
+    {
+      "id": "o7",
+      "wall": "w9",
+      "type": "window",
+      "offset": 2100,
+      "width": 4000,
+      "enabled": false,
+      "certainty": "uncertain",
+      "note": "教学候选：核对后可启用"
+    },
+    {
+      "id": "o8",
+      "wall": "w10",
+      "type": "window",
+      "offset": 1300,
+      "width": 2000,
+      "enabled": false,
+      "certainty": "uncertain",
+      "note": "教学候选：核对后可启用"
+    },
+    {
+      "id": "entry",
+      "wall": "w11",
+      "type": "door",
+      "offset": 200,
+      "width": 1000,
+      "enabled": false,
+      "certainty": "uncertain",
+      "note": "教学候选：核对后可启用"
+    },
+    {
+      "id": "main",
+      "wall": "w16",
+      "type": "door",
+      "offset": 2700,
+      "width": 900,
+      "enabled": false,
+      "certainty": "uncertain",
+      "note": "教学候选：核对后可启用"
+    },
+    {
+      "id": "second",
+      "wall": "w17",
+      "type": "door",
+      "offset": 2600,
+      "width": 900,
+      "enabled": false,
+      "certainty": "uncertain",
+      "note": "教学候选：核对后可启用"
+    },
+    {
+      "id": "study",
+      "wall": "w18",
+      "type": "door",
+      "offset": 300,
+      "width": 850,
+      "enabled": false,
+      "certainty": "uncertain",
+      "note": "教学候选：核对后可启用"
+    },
+    {
+      "id": "bath",
+      "wall": "w19",
+      "type": "door",
+      "offset": 350,
+      "width": 800,
+      "enabled": false,
+      "certainty": "uncertain",
+      "note": "教学候选：核对后可启用"
+    },
+    {
+      "id": "living",
+      "wall": "w20",
+      "type": "door",
+      "offset": 1100,
+      "width": 1200,
+      "enabled": false,
+      "certainty": "uncertain",
+      "note": "教学候选：核对后可启用"
+    },
+    {
+      "id": "kitchen",
+      "wall": "w21",
+      "type": "door",
+      "offset": 800,
+      "width": 1100,
+      "enabled": false,
+      "certainty": "uncertain",
+      "note": "教学候选：核对后可启用"
+    },
+    {
+      "id": "utility",
+      "wall": "w23",
+      "type": "door",
+      "offset": 350,
+      "width": 900,
+      "enabled": false,
+      "certainty": "uncertain",
+      "note": "教学候选：核对后可启用"
+    }
+  ],
+  "roomLabels": [
+    {
+      "x": 2000,
+      "y": 2000,
+      "name": "主卧"
+    },
+    {
+      "x": 5900,
+      "y": 2000,
+      "name": "次卧"
+    },
+    {
+      "x": 8900,
+      "y": 2000,
+      "name": "书房"
+    },
+    {
+      "x": 11000,
+      "y": 2000,
+      "name": "客卫"
+    },
+    {
+      "x": 6000,
+      "y": 4700,
+      "name": "玄关走廊"
+    },
+    {
+      "x": 10000,
+      "y": 6800,
+      "name": "厨房"
+    },
+    {
+      "x": 10000,
+      "y": 9500,
+      "name": "洗浴洗衣"
+    },
+    {
+      "x": 4000,
+      "y": 8100,
+      "name": "客餐厅"
+    }
+  ],
+  "warnings": [
+    "本示例由同一份原创户型数据生成，用于体验尺寸审查流程，不代表模型识别能力。",
+    "书房宽度故意标为待核对，以演示人工确认；数值与示例图一致。",
+    "所有尺寸均为演示轴线尺寸，不能用于实际施工。"
+  ]
+}

@@ -1,0 +1,11 @@
+import {writeFileSync} from 'node:fs';
+import {demoProject,findRooms} from '../public/studio/model.js';
+import {svgString} from '../public/studio/export.js';
+const root=new URL('../public/studio/assets/',import.meta.url),p=demoProject();
+p.id='showcase-qingchuan-v12';
+writeFileSync(new URL('showcase-plan.svg',root),svgString(p));
+writeFileSync(new URL('showcase-project.json',root),JSON.stringify(p,null,2)+'\n');
+const dimensions=[['width','n0','n4','x',12000],['depth','n4','n8','y',10800],['primary','n0','n1','x',4000],['second','n1','n2','x',3800],['study','n2','n3','x',2200],['bath','n3','n4','x',2000],['north','n4','n5','y',4000],['hall','n5','n6','y',1400],['kitchen','n6','n7','y',2800],['living','n11','n16','x',8000]].map(([id,from,to,axis,value])=>({id,from,to,axis,value,unit:'mm',label:`${value} mm`,certainty:id==='study'?'uncertain':'clear',enabled:true,confirmed:false}));
+const sample={schemaVersion:1,title:'晴川雅居 · 尺寸审查教学',source:'原创程序化教学数据；非 AI 识别结果，未调用 API',nodes:p.nodes,walls:p.walls.map(w=>({id:w.id,a:w.a,b:w.b,alignment:p.nodes.find(n=>n.id===w.a).y===p.nodes.find(n=>n.id===w.b).y?'horizontal':'vertical'})),dimensions,openings:p.openings.map(o=>({id:o.id,wall:o.wall,type:o.type,offset:o.offset,width:o.width,enabled:false,certainty:'uncertain',note:'教学候选：核对后可启用'})),roomLabels:findRooms(p).map(r=>({...r.centroid,name:p.roomMeta[r.key].name})),warnings:['本示例由同一份原创户型数据生成，用于体验尺寸审查流程，不代表模型识别能力。','书房宽度故意标为待核对，以演示人工确认；数值与示例图一致。','所有尺寸均为演示轴线尺寸，不能用于实际施工。']};
+writeFileSync(new URL('showcase-recognition-sample.json',root),JSON.stringify(sample,null,2)+'\n');
+console.log(`Generated original showcase: ${findRooms(p).length} rooms, ${p.furniture.length} objects, ${dimensions.length} review dimensions`);
