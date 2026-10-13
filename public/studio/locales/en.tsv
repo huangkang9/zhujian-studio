@@ -1495,3 +1495,113 @@
 示例审查和	Sample review and
 识别结果	recognition result
 非	not
+开间	Studio
+独立厨房	Separate kitchen
+紧凑生活	Compact living
+转角布局	Corner layout
+阳台	Balcony
+一居	1 bedroom
+横厅	Wide living room
+动静分区	Separated living and sleeping
+两居	2 bedrooms
+洗衣房	Laundry
+三居	3 bedrooms
+纵厅	Long living room
+独立餐厅	Separate dining room
+四居	4 bedrooms
+儿童房	Kids room
+卫生间	Bathroom
+原创参考户型	Original reference floor plan
+尺寸为演示轴线值	Dimensions are illustrative centerline values
+非实测或施工图	Not a measured survey or construction drawing
+预览户型	Preview plan
+查看与使用	View & use
+没有匹配的户型	No matching plans
+试试其他筛选	Try different filters
+清除筛选	Clear filters
+参考户型预览	Reference plan preview
+导入项目预览	Import preview
+显示尺寸	Show dimensions
+墙体轴线围合面积	Area enclosed by wall centerlines
+原创参考案例	Original reference example
+打开后可编辑尺寸	Edit dimensions after opening
+材质和家具	materials and furniture
+导入为独立副本	Import as an independent copy
+不覆盖同名或同编号的已有项目	Existing projects with the same name or ID are preserved
+项错误	errors
+项提醒	warnings
+保留家具布置	Keep furniture
+使用此户型	Use this plan
+确认导入	Confirm import
+打开前先保存当前方案	Your current project is saved before switching
+尺寸为毫米	Dimensions are in millimeters
+导入后请复核	Please verify after import
+正在读取文件	Reading file
+支持筑间	Supports Zhujian
+和	and
+暂不支持导入	import is not supported yet
+导入失败	Import failed
+导入你的户型	Import your floor plan
+选择文件	Choose file
+或拖放到下方区域	or drop it below
+导入后保存在你的空间档案	Imported projects appear in your project archive
+仅当前浏览器可见	visible only in this browser
+把你的方案带进来	Bring your plan along
+筑间项目	Zhujian project
+恢复可编辑墙体	Restore editable walls
+门窗与家具	doors, windows and furniture
+最大	up to
+户型图片	Floor plan image
+创建独立底图方案	Create a separate project with a reference image
+先两点校准再描图	Calibrate two points before tracing
+识别需要配置	recognition requires configuring
+图片不会自动变成准确墙体	An image does not automatically become accurate walls
+每次请选择一个文件	Choose one file at a time
+参考户型库	Floor plan library
+从一种生活	Start with a way of living
+开始设计	Make it your own
+套原创参考户型	original reference plans
+从开间到四居	from studios to four bedrooms
+先看布局	Explore the layout
+再把它变成你的家	then make it your home
+搜索案例	Search plans
+名称	Name
+卧室数量	Bedrooms
+全部户型	All layouts
+全部面积	All areas
+排列方式	Sort by
+精选在前	Featured first
+面积从小到大	Area: low to high
+面积从大到小	Area: high to low
+可编辑尺寸与家具	Editable dimensions & furniture
+查看更多户型	Show more plans
+案例	Plans
+从一种生活，开始设计。	A way of living. A place to begin.
+24 套原创参考户型，从开间到四居。先看布局，再把它变成你的家。	24 original floor plans, from studios to four bedrooms. Explore a layout and make it your own.
+原创参考案例，不是实测或施工图。打开后可编辑尺寸、门窗、材质和家具。	An original reference layout, not a survey or construction drawing. Edit dimensions, doors, windows, finishes and furniture.
+支持筑间 JSON、JPG、PNG 和 WebP；DWG、DXF 和 PDF 暂不支持导入。	Supports Zhujian JSON, JPG, PNG and WebP. DWG, DXF and PDF import is not supported yet.
+图片不会自动变成准确墙体。DWG、DXF 和 PDF 暂不支持导入。	Images do not automatically become accurate walls. DWG, DXF and PDF import is not supported yet.
+创建独立底图方案，最大 20 MB。先两点校准再描图；AI 识别需要配置 API。	Create a separate reference-image project, up to 20 MB. Calibrate two points before tracing; AI recognition requires API configuration.
+晨光小筑	Morning Nest
+长廊微居	Linear Studio
+转角单身居	Corner Studio
+露台伴居	Terrace Studio
+城中一居	City One
+静谧南厅	Quiet Living
+书香一居	Readers One
+庭边小宅	Garden One
+双卧晴居	Twin Rooms
+横厅两居	Wide Living
+左右双卧	Split Bedrooms
+北庭两居	North Court
+阶庭两居	Stepped Home
+双卫两居	Two Baths
+松影三居	Pine Three
+向阳三居	Sunny Family
+长庭三居	Long Court
+书庭三居	Study Court
+翼型三居	Wing Home
+双厅三居	Living & Dining
+四季合居	Four Seasons
+三代同堂	Generations
+合院四居	Courtyard Four

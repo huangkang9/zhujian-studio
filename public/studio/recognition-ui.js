@@ -1,6 +1,6 @@
-import {normalizeRecognition,compileRecognition} from './recognition.js?v=0.12.1';
-import {renderPlan,esc} from './plan.js?v=0.12.1';
-import {bounds,clone} from './model.js?v=0.12.1';
+import {normalizeRecognition,compileRecognition} from './recognition.js?v=0.13';
+import {renderPlan,esc} from './plan.js?v=0.13';
+import {bounds,clone} from './model.js?v=0.13';
 export function installRecognition(api){
  const $=s=>document.querySelector(s);let hasLocalConfig=false;let config={baseURL:'https://dashscope.aliyuncs.com/compatible-mode/v1',model:'qwen3-vl-plus'},apiKey='',controller=null,raw=null,sourceImage=null,sourceBG=null,isSample=false,defaults={wallThickness:200,wallHeight:2800};
  try{const saved=JSON.parse(localStorage.getItem('zhujian-ai-settings')||'null');if(saved&&typeof saved.baseURL==='string'&&typeof saved.model==='string'){config={baseURL:saved.baseURL,model:saved.model};hasLocalConfig=true;}}catch{}

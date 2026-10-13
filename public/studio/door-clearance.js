@@ -1,5 +1,5 @@
-import {wallPoints,wallLength,furnitureCorners,pointInPolygon,projectPoint,intersection,findRooms} from './model.js?v=0.12.1';
-import {ceilingHeight} from './fitout.js?v=0.12.1';
+import {wallPoints,wallLength,furnitureCorners,pointInPolygon,projectPoint,intersection,findRooms} from './model.js?v=0.13';
+import {ceilingHeight} from './fitout.js?v=0.13';
 /** Conservative sampled door sweep, mm; 3° increments and 20 mm leaf half-thickness. */
 export function doorSweepConflicts(p){const issues=[];
  for(const o of p.openings.filter(o=>o.type==='door')){const w=p.walls.find(w=>w.id===o.wall);if(!w)continue;const[a,b]=wallPoints(p,w),len=wallLength(p,w);if(!len)continue;const ux=(b.x-a.x)/len,uy=(b.y-a.y)/len,hinge={x:a.x+ux*(o.offset+45),y:a.y+uy*(o.offset+45)},width=Math.max(0,o.width-90),limit=o.openAngle>0?o.openAngle:90,sign=o.flip?-1:1;

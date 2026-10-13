@@ -1,4 +1,4 @@
-import {english} from './locales/en.js?v=0.12.1';
+import {english} from './locales/en.js?v=0.13';
 const phraseKeys=Object.keys(english).sort((a,b)=>b.length-a.length);
 function translatePhrase(word){if(Object.hasOwn(english,word))return english[word];let rest=word;const parts=[];while(rest){const key=phraseKeys.find(key=>rest.startsWith(key));if(!key)return undefined;parts.push(english[key]);rest=rest.slice(key.length);}return parts.join(' ');}
 const key='zhujian-language';let language='zh-CN';

@@ -1,4 +1,4 @@
-# 筑间 · 手绘到空间 V0.12.1
+# 筑间 · 手绘到空间 V0.13
 
 一个支持多项目的本地户型编辑工作台：草图底图 → 精确二维编辑 → CAD 尺寸图 → 三维家居布置。
 
@@ -6,11 +6,22 @@
 
 ### [→ 点击打开筑间工作台 / Launch Studio](https://zhu-jian-floorplan.bubbly-giant-7985.chatgpt.site/studio/?demo=showcase)
 
+**[浏览 24 套参考户型 / Browse 24 floor plans](https://zhu-jian-floorplan.bubbly-giant-7985.chatgpt.site/studio/?view=cases)** · 可筛选、预览、导入自己的项目。
+
 无需安装，此链接会先保存上次方案，再直接打开全新的「晴川雅居」示例，即可体验二维户型编辑、三维家具布置、材质与颜色修改，以及 CAD / SVG 导出。右上角可切换中文 / English，建议使用支持 WebGL 的桌面浏览器。
 
 演示站对持链接的访客开放。项目保存在当前浏览器，不会共享给其他访客；内置户型为原创示例，不包含个人草图。编辑与示例尺寸审查无需 API Key；实时 AI 识别仍需登录并配置自己的 API，示例审查不是实时 AI 识别。
 
 The demo link opens a fresh showcase project after saving your previous work. Switch to English with the language button. Projects stay in your browser. Live AI recognition requires sign-in and your own API configuration.
+
+## V0.13：24 套参考户型与用户导入
+
+- 首页「参考户型库」，或编辑器左侧「案例」：24 套原创参考布局，覆盖开间、一居、两居、三居、四居，约 33–131 m² 轴线面积；包括横厅、转角、书房、双卫、阳台与独立餐厅。
+- 按卧室数量、面积区间及中英关键词筛选，支持按面积排序、逐批查看更多。卡片来自真实可编辑模型的 SVG，不是效果图占位。
+- 预览尺寸、房间和家具数量；可选择保留家具或只使用建筑轮廓。使用案例创建独立项目，先保存原方案；也可下载对应 JSON。
+- 「导入你的户型」支持文件选择与单文件拖放。筑间 version 1 / mm JSON（最大 25 MB）先校验并预览，再创建独立副本；同名或同 ID 不覆盖已有项目。
+- JPG / PNG / WebP（最大 20 MB）创建独立底图项目，之后使用两点校准、描图或已配置的 AI 识别流程。图片不自动变成精确墙体；DWG、DXF、PDF 暂不支持导入。
+- 导入方案进入本机空间档案，不会加入公共案例库。参考户型为原创设计练习，不是实测、建筑设计审查或施工图。
 
 ## V0.12.1：新版示例入口
 

@@ -1,8 +1,8 @@
-import {lightSettings,kelvinColor} from './fitout.js?v=0.12.1';
+import {lightSettings,kelvinColor} from './fitout.js?v=0.13';
 import * as THREE from './vendor/three.module.js';
-import {daylightAt,finishById,atmosphereSettings} from './atmosphere.js?v=0.12.1';
-import {bounds,clone} from './model.js?v=0.12.1';
-import {surfaceTexture} from './furniture-3d.js?v=0.12.1';
+import {daylightAt,finishById,atmosphereSettings} from './atmosphere.js?v=0.13';
+import {bounds,clone} from './model.js?v=0.13';
+import {surfaceTexture} from './furniture-3d.js?v=0.13';
 const maps=new Map();
 export function finishMaterial(id){const sample=finishById(id);if(!sample)return {};let map=maps.get(id);if(!map&&sample.family!=='paint'){map=surfaceTexture(sample.family).clone();map.repeat.set(sample.family==='wood'?.7:1,sample.family==='wood'?3:1);map.needsUpdate=true;maps.set(id,map);}return {color:sample.color,roughness:sample.roughness,...(map?{map}:{})};}
 export function wallUV(mesh){const geo=mesh.geometry,p=geo.attributes.position,n=geo.attributes.normal,uv=geo.attributes.uv;for(let i=0;i<p.count;i++){uv.setXY(i,Math.abs(n.getX(i))>.5?p.getZ(i)+mesh.position.z:p.getX(i)+mesh.position.x,Math.abs(n.getY(i))>.5?p.getZ(i)+mesh.position.z:p.getY(i)+mesh.position.y);}uv.needsUpdate=true;}

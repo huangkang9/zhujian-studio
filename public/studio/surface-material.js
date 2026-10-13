@@ -1,5 +1,5 @@
 import * as THREE from './vendor/three.module.js';
-import {styleById} from './surface-styles.js?v=0.12.1';
+import {styleById} from './surface-styles.js?v=0.13';
 const cache=new Map(),fract=x=>x-Math.floor(x),rgb=h=>h.match(/[a-f0-9]{2}/gi).map(v=>parseInt(v,16));
 export function stylePixels(style,color,groutColor,groutRatio=.005,size=128){const data=new Uint8Array(size*size*4),base=rgb(color),grout=rgb(groutColor);for(let y=0;y<size;y++)for(let x=0;x<size;x++){let u=x/size,v=y/size,k=1,seam=false;const noise=((x*73+y*97+x*y*13)%101)/101;
  if(style==='tiles'||style==='diagonal')seam=u<groutRatio||v<groutRatio;

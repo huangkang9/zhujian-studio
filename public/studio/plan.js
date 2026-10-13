@@ -1,4 +1,4 @@
-import {wallPoints,wallLength,findRooms,bounds,furnitureTypes} from './model.js?v=0.12.1';
+import {wallPoints,wallLength,findRooms,bounds,furnitureTypes} from './model.js?v=0.13';
 export const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const line=(a,b,attr='')=>`<line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" ${attr}/>`;
 export function furnitureSVG(f,selected=false){const def=furnitureTypes[f.type],w=def?.w||f.w,d=def?.d||f.d,c=esc(f.color),type=furnitureTypes[f.type]?.shape||f.type,sw=Math.min(w,d)*.025;let inside='';const rect=(x,y,a,b,fill=c,r=30,extra='')=>`<rect x="${x}" y="${y}" width="${a}" height="${b}" rx="${r}" fill="${fill}" ${extra}/>`;

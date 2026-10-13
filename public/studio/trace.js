@@ -1,7 +1,7 @@
 /** Real local image processing: dark, near-horizontal/vertical stroke candidates.
  * This does NOT read dimensions, identify doors, or claim semantic AI recognition.
  */
-import {clamp,round} from './model.js?v=0.12.1';
+import {clamp,round} from './model.js?v=0.13';
 export function detectLines(image,{threshold=100,minLength=55,gap=7,maxLines=70}={}){
  const {width:w,height:h,data}=image;if(!w||!h||!data||w*h>1800000)throw Error('图像尺寸无效或过大');
  const ink=new Uint8Array(w*h);

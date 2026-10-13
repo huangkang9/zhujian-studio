@@ -1,6 +1,6 @@
-import {surfaceStyles,colorPalette,surfaceState,setSurfaceStyle,setSurfaceColor,setSurfaceParameter,changeFurnitureType} from './surface-styles.js?v=0.12.1';
-import {furnitureTypes} from './furniture-catalog.js?v=0.12.1';
-import {esc} from './plan.js?v=0.12.1';
+import {surfaceStyles,colorPalette,surfaceState,setSurfaceStyle,setSurfaceColor,setSurfaceParameter,changeFurnitureType} from './surface-styles.js?v=0.13';
+import {furnitureTypes} from './furniture-catalog.js?v=0.13';
+import {esc} from './plan.js?v=0.13';
 export function surfaceEditor(container,api,prefix='surface'){
  const p=api.project(),target=api.selected();if(!['wall','room','furniture'].includes(target?.kind)){container.innerHTML='';return;}
  const state=surfaceState(p,target),f=target.kind==='furniture'?p.furniture.find(f=>f.id===target.id):null,styles=surfaceStyles.filter(s=>s.targets.includes(target.kind)),tiled=['tiles','diagonal','checker','subway','brick','wood','parquet','slats','panels'].includes(state.style);

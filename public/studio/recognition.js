@@ -1,4 +1,4 @@
-import {emptyProject,normalizeProject,findRooms,openingValid,pointInPolygon} from './model.js?v=0.12.1';
+import {emptyProject,normalizeProject,findRooms,openingValid,pointInPolygon} from './model.js?v=0.13';
 const validId=v=>typeof v==='string'&&/^[a-zA-Z0-9_.-]{1,64}$/.test(v);
 const finite=v=>typeof v==='number'&&Number.isFinite(v)&&Math.abs(v)<1e6;
 const clean=(v,max=200)=>String(v??'').slice(0,max);

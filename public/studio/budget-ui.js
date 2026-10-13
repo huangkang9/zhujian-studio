@@ -1,5 +1,5 @@
-import {budgetRows,budgetSummary,budgetSettings,setBudgetRate,setBudgetSetting,budgetCSV,addBudgetItem,changeBudgetItem,removeBudgetItem} from './budget.js?v=0.12.1';
-import {esc} from './plan.js?v=0.12.1';
+import {budgetRows,budgetSummary,budgetSettings,setBudgetRate,setBudgetSetting,budgetCSV,addBudgetItem,changeBudgetItem,removeBudgetItem} from './budget.js?v=0.13';
+import {esc} from './plan.js?v=0.13';
 export function installBudget(api){
  const $=s=>document.querySelector(s);let filter='全部';const money=n=>'¥ '+n.toLocaleString('zh-CN',{minimumFractionDigits:2,maximumFractionDigits:2});
  function open(){

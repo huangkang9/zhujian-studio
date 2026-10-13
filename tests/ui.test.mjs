@@ -51,7 +51,7 @@ test('complete non-WebGL DOM flow: resize, furnishings, rectangle, measurement, 
  await $('#retrySave').onclick();const structuralSaved=await store.active();assert.equal(structuralSaved.walls[0].structure,'bearing');assert.equal(structuralSaved.layers.structure,true);
  pointer($('#plan [data-kind="wall"]'),'pointerdown');pointer(svg,'pointerup');$('#wallStructure').onchange({target:{value:'partition'}});assert.ok($('#confirmStructure'));$('#keepStructure').onclick();assert.equal($('#deleteSelected').disabled,true);
  // Real app flow in English, without reloading or committing pending inputs.
- const {setLanguage}=await import('../public/studio/i18n.js?v=0.12.1');
+ const {setLanguage}=await import('../public/studio/i18n.js?v=0.13');
  const waitLanguage=()=>new Promise(resolve=>setTimeout(resolve,0));
  $('#projectName').value='尚未提交的中文项目名';setLanguage('en');await waitLanguage();
  assert.equal($('#projectName').value,'尚未提交的中文项目名');assert.ok($('#exportBtn').textContent.includes('Export plans'));assert.equal(document.documentElement.lang,'en');

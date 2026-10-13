@@ -1,10 +1,10 @@
-import {fitoutEditor} from './fitout-ui.js?v=0.12.1';
-import {surfaceEditor} from './surface-editor.js?v=0.12.1';
-import {materialSamples,materialFamilies,finishById,acceptsFinish,applyFinish,applyMood,moodPresets,atmosphereSettings,moodScores,timeLabel} from './atmosphere.js?v=0.12.1';
-import {findRooms,furnitureTypes,uid,clone,bounds} from './model.js?v=0.12.1';
-import {resizeFurniture} from './furniture-catalog.js?v=0.12.1';
-import {snapPlacement,placementError} from './placement.js?v=0.12.1';
-import {furnitureIcon,esc} from './plan.js?v=0.12.1';
+import {fitoutEditor} from './fitout-ui.js?v=0.13';
+import {surfaceEditor} from './surface-editor.js?v=0.13';
+import {materialSamples,materialFamilies,finishById,acceptsFinish,applyFinish,applyMood,moodPresets,atmosphereSettings,moodScores,timeLabel} from './atmosphere.js?v=0.13';
+import {findRooms,furnitureTypes,uid,clone,bounds} from './model.js?v=0.13';
+import {resizeFurniture} from './furniture-catalog.js?v=0.13';
+import {snapPlacement,placementError} from './placement.js?v=0.13';
+import {furnitureIcon,esc} from './plan.js?v=0.13';
 export function installAtmosphere(api){
  const $=s=>document.querySelector(s);let active=false,tab='wood',armed=null,dragged=null,previewHour=null,savedInert=[],listeners=[],snapshots=[],clean=false;
  const root=document.createElement('section');root.id='atmosphereHUD';root.hidden=true;root.setAttribute('aria-label','氛围工作室');$('#threePane').appendChild(root);

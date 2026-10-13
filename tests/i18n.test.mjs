@@ -1,6 +1,6 @@
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import {parseHTML} from 'linkedom';
-import {t,setLanguage,getLanguage,installLanguage,localizeMarkup,matches} from '../public/studio/i18n.js?v=0.12.1';
-import {english} from '../public/studio/locales/en.js?v=0.12.1';
+import {t,setLanguage,getLanguage,installLanguage,localizeMarkup,matches} from '../public/studio/i18n.js?v=0.13';
+import {english} from '../public/studio/locales/en.js?v=0.13';
 import {demoProject,normalizeProject} from '../public/studio/model.js';import {svgString,dxfString} from '../public/studio/export.js';import {printDocument} from '../public/studio/print-sheet.js';import {budgetCSV} from '../public/studio/budget.js';
 const tick=()=>new Promise(resolve=>setTimeout(resolve,0));
 test('source phrase catalog covers every static Chinese phrase in application modules',()=>{
